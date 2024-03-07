@@ -15,7 +15,7 @@
 <br />
 <div align="center">
   <a href="https://github.com/github_username/repo_name">
-    <img src="images/logo.png" alt="Logo" width="80" height="80">
+    <img src="images/logo.png" alt="HERE IS THE LOGO" width="80" height="80">
   </a>
 
 <h3 align="center">e-Worker</h3>
@@ -23,12 +23,12 @@
   <p align="center">
     This application assists unemployed individuals in finding their next job. It includes paid courses, financial aid as well as job listings via the web or by visiting the establishment.
     <br />
-    <a href="https://github.com/github_username/repo_name"><strong>Explore the docs »</strong></a>
+    <a href="https://github.com/codebydean/e-Worker"><strong>Explore the docs »</strong></a>
     <br />
     <br />
-    <a href="https://github.com/github_username/repo_name/issues">Report Bug</a>
+    <a href="https://github.com/codebydean/e-Worker/issues">Report Bug</a>
     ·
-    <a href="https://github.com/github_username/repo_name/issues">Request Feature</a>
+    <a href="https://github.com/codebydean/e-Worker/issues">Request Feature</a>
   </p>
 </div>
 
