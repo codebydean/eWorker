@@ -18,8 +18,6 @@
     <img src="images/logo.png" alt="HERE IS THE LOGO">
   </a>
 
-<h3 align="center">e-Worker</h3>
-
   <p align="center">
     This application assists unemployed individuals in finding their next job. It includes paid courses, financial aid as well as job listings via the web or by visiting the establishment.
     <br />
@@ -72,7 +70,8 @@ Here's a blank template to get started: To avoid retyping too much info. Do a se
 
 ### Built With
 
-TBD
+[![FrontEnd][React.js][React-url]]
+[![BackEnd][MongoDB][MongoDB-url]]
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -92,6 +91,7 @@ _For more examples, please refer to the [Documentation](https://example.com)_
 ## Roadmap
 
 - [X] Addition of a README & CHANGELOG files in the repository
+- [X] Creation of the App's Logo
 
 See the [open issues](https://github.com/codebydean/e-Worker/issues) for a full list of proposed features (and known issues).
 
@@ -171,5 +171,7 @@ Project Link: [https://github.com/codebydean/e-Worker](https://github.com/codeby
 [Next-url]: https://nextjs.org/
 [React.js]: https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB
 [React-url]: https://reactjs.org/
+[MongoDB]: (https://img.shields.io/badge/MongoDB-%234ea94b.svg?style=for-the-badge&logo=mongodb&logoColor=white)
+[MongoDB-url]: https://www.mongodb.com/
 [Tailwind.com]: https://img.shields.io/badge/Tailwind-563D7C?style=for-the-badge&logo=bootstrap&logoColor=white
 [Tailwind-url]: https://tailwindcss.com
