@@ -14,8 +14,8 @@
 <!-- PROJECT LOGO -->
 <br />
 <div align="center">
-  <a href="https://github.com/github_username/repo_name">
-    <img src="images/logo.png" alt="HERE IS THE LOGO" width="80" height="80">
+  <a href="https://github.com/codebydean/e-Worker">
+    <img src="/private/images/logo.png" alt="HERE IS THE LOGO" width="80" height="80">
   </a>
 
 <h3 align="center">e-Worker</h3>
