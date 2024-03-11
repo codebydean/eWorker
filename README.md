@@ -15,7 +15,7 @@
 <br />
 <div align="center">
   <a href="https://github.com/codebydean/e-Worker">
-    <img src="images/logo.png" alt="HERE IS THE LOGO" width="80" height="80">
+    <img src="images/logo.png" alt="HERE IS THE LOGO">
   </a>
 
 <h3 align="center">e-Worker</h3>
