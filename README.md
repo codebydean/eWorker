@@ -171,7 +171,7 @@ Project Link: [https://github.com/codebydean/e-Worker](https://github.com/codeby
 [Next-url]: https://nextjs.org/
 [React.js]: https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB
 [React-url]: https://reactjs.org/
-[MongoDB]: (https://img.shields.io/badge/MongoDB-%234ea94b.svg?style=for-the-badge&logo=mongodb&logoColor=white)
+[MongoDB]: https://img.shields.io/badge/MongoDB-%234ea94b.svg?style=for-the-badge&logo=mongodb&logoColor=white
 [MongoDB-url]: https://www.mongodb.com/
 [Tailwind.com]: https://img.shields.io/badge/Tailwind-563D7C?style=for-the-badge&logo=bootstrap&logoColor=white
 [Tailwind-url]: https://tailwindcss.com
