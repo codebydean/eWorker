@@ -131,9 +131,14 @@ Distributed under the GPL-3.0 license. See `LICENSE` for more information about 
 <!-- CONTACT -->
 ## Contact
 
-TBD
+<!-- Dean's Section-->
+[github/codebydean](https://github.com/codebydean)
+[linkedin/codebydean](https://www.linkedin.com/in/codebydean/)
 
-Project Link: [https://github.com/codebydean/e-Worker](https://github.com/codebydean/e-Worker)
+<!-- Sokratis' Section-->
+Sokratis - [github/sokofreta](https://github.com/sokofreta)
+
+Project Link: [e-Worker](https://github.com/codebydean/e-Worker)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
