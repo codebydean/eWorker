@@ -2,8 +2,11 @@
 [![Forks][forks-shield]][forks-url]
 [![Stargazers][stars-shield]][stars-url]
 
-
-<a href="" align="center"><img src="images/logo.png" width="auto" height="150px"></a>
+<div align="center">
+    <a href="">
+        <img src="images/logo.png" width="auto" height="200px">
+    </a>
+</div>
 
 <!-- MARKDOWN LINKS & IMAGES -->
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
