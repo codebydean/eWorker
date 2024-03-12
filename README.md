@@ -132,11 +132,11 @@ Distributed under the GPL-3.0 license. See `LICENSE` for more information about 
 ## Contact
 
 <!-- Dean's Section-->
-[github/codebydean](https://github.com/codebydean)
-[linkedin/codebydean](https://www.linkedin.com/in/codebydean/)
+⭐ [github/codebydean](https://github.com/codebydean)<br>
+⭐ [linkedin/codebydean](https://www.linkedin.com/in/codebydean/)
 
 <!-- Sokratis' Section-->
-Sokratis - [github/sokofreta](https://github.com/sokofreta)
+⭐ [github/sokofreta](https://github.com/sokofreta)
 
 Project Link: [e-Worker](https://github.com/codebydean/e-Worker)
 
