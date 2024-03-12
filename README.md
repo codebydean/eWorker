@@ -3,7 +3,7 @@
 [![Stargazers][stars-shield]][stars-url]
 
 
-<a href="" align="center"><img src="images/logo.png"></a>
+<a href="" align="center"><img src="images/logo.png" width="auto" height="150px"></a>
 
 <!-- MARKDOWN LINKS & IMAGES -->
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
