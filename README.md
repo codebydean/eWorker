@@ -122,7 +122,7 @@ Don't forget to give the project a star! Thanks again!
 <!-- LICENSE -->
 ## License
 
-TBD
+Distributed under the GPL-3.0 license. See `LICENSE` for more information about the licensing of the project.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
