@@ -93,6 +93,7 @@ _For more examples, please refer to the [Documentation](https://example.com)_
 
 - [X] Addition of a README & CHANGELOG files in the repository
 - [X] Creation of the App's Logo
+- [X] Addition of an Open-Source License
 
 See the [open issues](https://github.com/codebydean/e-Worker/issues) for a full list of proposed features (and known issues).
 
