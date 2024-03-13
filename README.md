@@ -7,6 +7,13 @@
         <img src="images/logo.png" width="auto" height="200px">
     </a>
 </div>
+<hr>
+
+<p>eWorker is a platform that assists unemployed individuals in finding their next job. It includes paid courses, financial aid as well as job listings via the web or by visiting the establishment.
+</p>
+
+
+
 
 <!-- MARKDOWN LINKS & IMAGES -->
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
