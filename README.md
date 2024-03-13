@@ -43,7 +43,7 @@ Join our <a href="https://discord.gg/fUdGeYcryy" target="_blank">socials</a> if 
 
 We appreciate your efforts and look forward to collaborating with you!
 <hr>
-## Star the Project
+<h3>Star the Project</h3>
 
 If you find our project useful or interesting, consider giving it a star! Your support helps us grow and encourages others to discover and benefit from our work. Simply click the ⭐️ star button at the top of the repository. Thank you for your support!
 
