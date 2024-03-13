@@ -2,19 +2,55 @@
 [![Forks][forks-shield]][forks-url]
 [![Stargazers][stars-shield]][stars-url]
 
+<!-- LOGO SECTION -->
 <div align="center">
     <a href="">
         <img src="images/logo.png" width="auto" height="200px">
     </a>
 </div>
 <hr>
-
+<!-- MAIN SECTION -->
 <p><b>eWorker</b> is a platform that assists unemployed individuals in finding their next job. It includes paid courses, financial aid as well as job listings via the web or by visiting the establishment.
 
 Join our <a href="https://discord.gg/fUdGeYcryy" target="_blank">socials</a> if you want to share your experience with eWorker, and communicate with fellow users.
 </p>
+<hr>
+<!-- CONTRIBUTING SECTION -->
+<h3>Contributing</h3>
 
+<p>Thank you for considering contributing to our project! Here's a basic guide to help you get started:</p>
 
+1. **Understand the Project:**
+   - Familiarize yourself with the project's goals and structure.
+
+2. **Identify Areas to Contribute:**
+   - Explore the project to find areas where your contributions can make a positive impact.
+
+3. **Communicate:**
+   - Reach out to the project maintainers or community to discuss your ideas or get guidance.
+
+4. **Make Changes:**
+   - Implement your changes in a new branch or relevant context.
+
+5. **Test Your Changes:**
+   - Ensure that your changes work as expected and do not introduce issues.
+
+6. **Submit Changes:**
+   - Share your contributions through the appropriate channels, whether it's a pull request, patch, or another method.
+
+7. **Be Open to Feedback:**
+   - Be open to feedback and iterate on your contributions based on discussions and suggestions.
+
+8. **Respect Guidelines:**
+   - Follow any project-specific guidelines, coding standards, or contribution processes.
+
+9. **Document Your Work:**
+   - Provide clear and concise documentation for your changes to help others understand your contributions.
+
+10. **Spread Positivity:**
+    - Contribute in a positive and inclusive manner, fostering a welcoming environment for all contributors.
+
+We appreciate your efforts and look forward to collaborating with you!
 
 
 
