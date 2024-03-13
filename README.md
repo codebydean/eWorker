@@ -9,8 +9,12 @@
 </div>
 <hr>
 
-<p>eWorker is a platform that assists unemployed individuals in finding their next job. It includes paid courses, financial aid as well as job listings via the web or by visiting the establishment.
+<p><b>eWorker</b> is a platform that assists unemployed individuals in finding their next job. It includes paid courses, financial aid as well as job listings via the web or by visiting the establishment.
+
+Join our <a href="https://discord.gg/fUdGeYcryy" target="_blank">socials</a> if you want to share your experience with eWorker, and communicate with fellow users.
 </p>
+
+
 
 
 
