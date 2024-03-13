@@ -22,35 +22,30 @@ Join our <a href="https://discord.gg/fUdGeYcryy" target="_blank">socials</a> if 
 
 1. **Understand the Project:**
    - Familiarize yourself with the project's goals and structure.
-
 2. **Identify Areas to Contribute:**
    - Explore the project to find areas where your contributions can make a positive impact.
-
 3. **Communicate:**
    - Reach out to the project maintainers or community to discuss your ideas or get guidance.
-
 4. **Make Changes:**
    - Implement your changes in a new branch or relevant context.
-
 5. **Test Your Changes:**
    - Ensure that your changes work as expected and do not introduce issues.
-
 6. **Submit Changes:**
    - Share your contributions through the appropriate channels, whether it's a pull request, patch, or another method.
-
 7. **Be Open to Feedback:**
    - Be open to feedback and iterate on your contributions based on discussions and suggestions.
-
 8. **Respect Guidelines:**
    - Follow any project-specific guidelines, coding standards, or contribution processes.
-
 9. **Document Your Work:**
    - Provide clear and concise documentation for your changes to help others understand your contributions.
-
 10. **Spread Positivity:**
     - Contribute in a positive and inclusive manner, fostering a welcoming environment for all contributors.
 
 We appreciate your efforts and look forward to collaborating with you!
+<hr>
+## Star the Project
+
+If you find our project useful or interesting, consider giving it a star! Your support helps us grow and encourages others to discover and benefit from our work. Simply click the ⭐️ star button at the top of the repository. Thank you for your support!
 
 
 
