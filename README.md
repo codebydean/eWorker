@@ -16,7 +16,7 @@ Join our <a href="https://discord.gg/fUdGeYcryy" target="_blank">socials</a> if 
 </p>
 <hr>
 <!-- CONTRIBUTING SECTION -->
-<h3>Contributing</h3>
+<h3>🤝 Contributing</h3>
 
 <p>Thank you for considering contributing to our project! Here's a basic guide to help you get started:</p>
 
@@ -43,7 +43,7 @@ Join our <a href="https://discord.gg/fUdGeYcryy" target="_blank">socials</a> if 
 
 We appreciate your efforts and look forward to collaborating with you!
 <hr>
-<h3>Star the Project</h3>
+<h3>⭐️ Star the Project</h3>
 
 If you find our project useful or interesting, consider giving it a star! Your support helps us grow and encourages others to discover and benefit from our work. Simply click the ⭐️ star button at the top of the repository. Thank you for your support!
 
