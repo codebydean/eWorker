@@ -68,7 +68,7 @@ We welcome you to eWorker! We thank you for taking the time to read this documen
   - Search for existing issues before creating a new one to avoid duplicates.
 
 - **Be Respectful:**
-  - Follow our [Code of Conduct](CODE_OF_CONDUCT.md).
+  - Follow our [Code of Conduct](CODE_OF_CONDUCT).
   - Treat fellow contributors with respect and kindness, fostering a positive and inclusive community.
 
 ## Thank You!
