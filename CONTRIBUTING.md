@@ -1,3 +1,7 @@
+<div align="center">
+    <a href="" target="_blank"><img src="images/logo.png" width="auto" height="180"></a>
+</div>
+
 # Guidelines for Contributing
 
 We welcome you to eWorker! We thank you for taking the time to read this document and willing to contribute to our work. Please, before you get started take a moment to review the following guidelines.
