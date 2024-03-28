@@ -23,6 +23,21 @@ router.get("/:id", async (req, res) => {
     }
 });
 
+router.post("/login",async (req,res) =>{
+    const {username,password} = req.body;
+    User.findOne({username : username})
+    .then(user => {
+        if(user){
+            if(user.password === password){
+                res.json("Success")
+            } else {
+                res.json("The password is incorrect")
+            }
+        } else {
+            res.json("No user exist")
+        }
+    })
+})
 //POST (create) User
 router.post("/", async (req, res) => {
     try {
