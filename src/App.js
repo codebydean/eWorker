@@ -3,6 +3,7 @@ import './App.css';
 import { useEffect } from 'react';
 import axios from 'axios'
 import Login from './login';
+import Register from './Register'
 
 function App() {
   const [users, setUsers] = useState([])
@@ -13,7 +14,7 @@ function App() {
       .catch(err => console.log(err))
   }, [])
   return (
-    <Login/>
+    <Register/>
   );
 }
 

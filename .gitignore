@@ -24,4 +24,5 @@ yarn-error.log*
 
 /images/logo.psd
 
+API/node_modules
 /node_modules

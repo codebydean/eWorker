@@ -1,5 +1,5 @@
 const exprees = require('express')
-const User = require('../model/Users.model.js')
+const User = require('../model/Users.model.js');
 const router = exprees.Router()
 
 //GET every User
@@ -23,9 +23,10 @@ router.get("/:id", async (req, res) => {
     }
 });
 
+//Login user config
 router.post("/login",async (req,res) =>{
-    const {username,password} = req.body;
-    User.findOne({username : username})
+    const {email,password} = req.body;
+    User.findOne({email : email})
     .then(user => {
         if(user){
             if(user.password === password){
@@ -38,6 +39,27 @@ router.post("/login",async (req,res) =>{
         }
     })
 })
+
+//Register User config
+
+//We can talk about how the check for connection will be 
+router.post("/register",async (req,res) =>{
+    const {email} = req.body;
+    try {
+        const existed_user_email = await User.findOne({email : email})
+        //const existed_user_username = await User.findOne({username : username})
+        if(!existed_user_email /*&& !existed_user_username*/) {
+            const new_user = await User.create(req.body)
+            res.status(200).json({new_user})
+        }
+        if(existed_user_email){
+            res.status(300).json({message : "User already exists!"})
+        }
+    } catch (error) {
+        res.status(500).json({message : error.message})
+    }
+})
+
 //POST (create) User
 router.post("/", async (req, res) => {
     try {
