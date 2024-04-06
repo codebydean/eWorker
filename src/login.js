@@ -1,8 +1,12 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
+import { useNavigate } from 'react-router-dom'
 import axios from 'axios'
 
 
 function Login() {
+
+    const navigate = useNavigate();
+
     const [username, setUsername] = useState()
     const [password, setPassword] = useState()
     const [email,setEmail] = useState()
@@ -14,7 +18,7 @@ function Login() {
         axios.post('http://localhost:5000/users/login', { email, password })
             .then(result => {
                 if (result.data === "Success") {
-                    console.log("Access granded / Καλώς ήρθες")
+                    navigate("/dashboard")
                 } else {
                     console.log("Access denied / Δοκίμασε ξανά")
                 }
@@ -104,7 +108,7 @@ function Login() {
                                 onClick={(e) => handleSubmit(e)} />
                             </div>
 
-                            <label className="flex justify-center">You do not have an account?<a className=" text-[#067FB9]" href="">Create one!</a></label>
+                            <label className="flex justify-center">You do not have an account?<a className=" text-[#067FB9]" href="/register">Create one!</a></label>
                         </form>
                     </div>
                 </div>

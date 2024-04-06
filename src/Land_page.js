@@ -1,26 +1,8 @@
-import { useState } from "react";
-import axios from 'axios'
-
+import { useNavigate } from 'react-router-dom'
 
 function Login() {
-    const [username, setUsername] = useState()
-    const [password, setPassword] = useState()
-    const [email, setEmail] = useState()
-
-    const handleSubmit = (e) => {
-        e.preventDefault()
-        axios.post('http://localhost:5000/users/register', { email, username, password })
-            .then(result => {
-                if (result.data === "Success") {
-                    console.log("Access granded / Καλος ήρθες")
-                    //navigate to Login page or to main page.
-                } else {
-                    console.log("Access denied / Δοκίμασε ξανά")
-                }
-            })
-            .catch(err => console.log(err))
-    }
-
+    
+    const navigate = useNavigate();
     return (
         <section className="">
             <div className="relative w-full grid grid-cols-3">
@@ -38,7 +20,7 @@ function Login() {
 
                 {/*------------------- Second column -------------------*/}
                 <div className="flex flex-col justify-center items-center h-[900px] w-full">
-                    <img className="w-full rounded-3xl mt-[5%] h-[90%]" src="/images/Land_page_image.jpg" alt=""></img>
+                    <img className="w-full rounded-3xl mt-[2%] h-[96%]" src="/images/Land_page_image.jpg" alt=""></img>
                 </div>
 
                 {/*------------------- Third column -------------------*/}
@@ -64,12 +46,14 @@ function Login() {
                             <button className="block bg-[#067FB9] 
                                 border-2 border-[#067FB9] rounded-xl 
                                 p-1 text-xl w-[40%] mr-[5px] cursor-pointer
-                                text-white ">
+                                text-white"
+                                onClick={()=>{navigate("/register")}}>
                                 Sign up &#8594;
                             </button>
                             <button className="block bg-[#000000]/20 
                                  rounded-xl p-1 text-xl w-[40%] ml-[5px] 
-                                 cursor-pointer text-black font-bold">
+                                 cursor-pointer text-black font-bold"
+                                 onClick={()=>{navigate(("/login"))}}>
                                 Login
                             </button>                            
                         </div>

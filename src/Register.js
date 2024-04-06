@@ -109,7 +109,7 @@ function Login() {
                                 onClick={(e) => handleSubmit(e)} />
                             </div>
 
-                            <label className="flex justify-center">Allready register?<a className=" text-[#067FB9]" href="">Login!</a></label>
+                            <label className="flex justify-center">Allready register?<a className=" text-[#067FB9]" href="/login">Login!</a></label>
                         </form>
                     </div>
                 </div>

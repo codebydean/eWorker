@@ -1,21 +1,23 @@
-import { useState } from 'react';
-import './App.css';
-import { useEffect } from 'react';
-import axios from 'axios'
+import { BrowserRouter , Routes , Route} from 'react-router-dom';
 import Login from './login';
 import Register from './Register'
 import Land from './Land_page'
+import Dashboard from './Dashboard';
 
 function App() {
-  const [users, setUsers] = useState([])
 
-  useEffect(() => {
-    axios.get("http://localhost:5000/users")
-      .then(result => setUsers(result.data))
-      .catch(err => console.log(err))
-  }, [])
   return (
-    <Land/>
+    <>
+      <BrowserRouter>
+        <Routes>
+          <Route path='/login' element={<Login />} />
+          <Route path='/register' element={<Register />} />
+          <Route path='/land' element={<Land />} />
+          <Route path='/dashboard' element={<Dashboard />} />
+          <Route index element={<Land />} />
+        </Routes>
+      </BrowserRouter>
+    </>
   );
 }
 
