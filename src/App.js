@@ -4,6 +4,7 @@ import { useEffect } from 'react';
 import axios from 'axios'
 import Login from './login';
 import Register from './Register'
+import Land from './Land_page'
 
 function App() {
   const [users, setUsers] = useState([])
@@ -14,7 +15,7 @@ function App() {
       .catch(err => console.log(err))
   }, [])
   return (
-    <Register/>
+    <Land/>
   );
 }
 

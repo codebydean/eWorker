@@ -24,7 +24,7 @@ function Login() {
     return (
         <section className="">
 
-            <div className="grid grid-cols-2 h-screen w-screen bg-[#E9F7F9]">
+            <div className="grid grid-cols-2 w-full bg-[#E9F7F9]">
             
                 {/*Fisrt Colun (Left side)*/}
                 <div class="relative w-full h-screen">
