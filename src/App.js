@@ -1,8 +1,8 @@
 import { BrowserRouter , Routes , Route} from 'react-router-dom';
-import Login from './login';
-import Register from './Register'
-import Land from './Land_page'
-import Dashboard from './Dashboard';
+import Login from './components/login';
+import Register from './components/Register'
+import Landing from './components/landingPage'
+import Dashboard from './components/Dashboard';
 
 function App() {
 
@@ -12,9 +12,9 @@ function App() {
         <Routes>
           <Route path='/login' element={<Login />} />
           <Route path='/register' element={<Register />} />
-          <Route path='/land' element={<Land />} />
+          <Route path='/land' element={<Landing />} />
           <Route path='/dashboard' element={<Dashboard />} />
-          <Route index element={<Land />} />
+          <Route index element={<Landing />} />
         </Routes>
       </BrowserRouter>
     </>

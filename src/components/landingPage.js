@@ -1,6 +1,6 @@
 import { useNavigate } from 'react-router-dom'
 
-function Login() {
+function Landing() {
     
     const navigate = useNavigate();
     return (
@@ -9,7 +9,7 @@ function Login() {
 
                 {/*------------------- Left Section -------------------*/}
                 <div className="relative w-full ">
-                    <img className="flex justify-start items-center w-60 h-40" src="/images/logo-light.png" alt=""></img>    
+                    <img className="flex justify-start items-center w-60 h-40" src="/src/assets/images/logo-light.png" alt=""></img>    
                     <div className="absolute w-[70%] h-full top-0 left-[15%] 
                                     flex justify-center items-center flex-col">
                         <label className="text-black text-5xl text-center">
@@ -20,7 +20,7 @@ function Login() {
 
                 {/*------------------- Middle  Section -------------------*/}
                 <div className="flex flex-col justify-center items-center h-[900px] w-full">
-                    <img className="w-full rounded-3xl mt-[2%] h-[96%]" src="/images/Land_page_image.jpg" alt=""></img>
+                    <img className="w-full rounded-3xl mt-[2%] h-[96%]" src="/src/assets/images/Land_page_image.jpg" alt=""></img>
                 </div>
 
                 {/*------------------- Right Section -------------------*/}
@@ -86,4 +86,4 @@ function Login() {
     );
 }
 
-export default Login
+export default Landing
