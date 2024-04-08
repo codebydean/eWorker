@@ -5,6 +5,7 @@ import Register from './components/Register/Register';
 import Landing from './components/LandingPage/LandingPage';
 import Dashboard from './components/Dashboard/Dashboard';
 import PageNotFound from './components/PageNotFound/PageNotFound';
+import './assets/styles/index.css'
 
 
 //React App initialization
