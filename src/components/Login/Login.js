@@ -9,14 +9,15 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { library } from "@fortawesome/fontawesome-svg-core";
 import { faEnvelope } from "@fortawesome/free-solid-svg-icons/faEnvelope";
 import { faKey } from "@fortawesome/free-solid-svg-icons/faKey";
+import { faArrowLeftLong } from "@fortawesome/free-solid-svg-icons";
 
 /* Creation of a Library instance to store the variables from the font awesome imports */
-library.add(faEnvelope, faKey)
+library.add(faEnvelope, faKey, faArrowLeftLong)
 
 /* Initialization of the Component */
 function Login() {
 
-    const navigate = useNavigate();
+    const NAVIGATE = useNavigate();
 
     /* Declaration of variables for the States */
     const [username, setUsername] = useState()
@@ -30,7 +31,7 @@ function Login() {
         axios.post('http://localhost:5000/users/login', { email, password })
             .then(result => {
                 if (result.data === "Success") {
-                    navigate("/dashboard")
+                    NAVIGATE("/dashboard")
                 } else {
                     console.log("Access denied / Δοκίμασε ξανά")
                 }
@@ -45,18 +46,29 @@ function Login() {
             <div className="grid grid-cols-2 h-screen w-screen bg-[#E9F7F9]">
 
                 {/* Left Section contains the login page image with the motivation text in the center */}
-                <div class="relative w-full h-screen">
-                    <img src="/images/loginImage.jpg" alt="Avatar" className="w-full h-full" />
-                    <div className="absolute w-[90%] h-full top-0 left-[5%] 
-                                    flex justify-center items-center flex-col">
-                        <label className="text-white text-5xl text-center">
-                            Embark on your path to success with <label className=" text-[#81F9E3]">Every click</label>
-                        </label>
-
-                        <label className="text-white text-2xl text-center mt-[20px]">
-                            Accelarate your carrer growth by connecting with top-notch opportunities
-                        </label>
+                <div class="relative w-full h-screen grid grid-rows-2 grid-flow-row LoginImage">
+                    {/* <img src="/images/loginImage.jpg" alt="Avatar" className="w-full h-full" /> */}
+                    <div className="row-end-1 p-7">
+                        <div className="flex">
+                            <button className="text-[#067FB9] text-2xl border-[#E9F7F9] border-2 p-3 rounded-3xl bg-[#E9F7F9] cursor-pointer" onClick={() => { NAVIGATE("/Home") }}>
+                                <FontAwesomeIcon icon={faArrowLeftLong} />
+                                <span>&nbsp; Home</span>
+                            </button>
+                        </div>
                     </div>
+                    <div className="row-start-1 row-end-3">
+                        <div className="relative w-[90%] h-full top-0 left-[5%] 
+                                    flex justify-center items-center flex-col">
+                            <label className="text-white text-5xl text-center">
+                                Embark on your path to success with <label className=" text-[#81F9E3]">Every click</label>
+                            </label>
+
+                            <label className="text-white text-2xl text-center mt-[20px]">
+                                Accelarate your carrer growth by connecting with top-notch opportunities
+                            </label>
+                        </div>
+                    </div>
+
                 </div>
 
                 {/* Right side contains the logo as well as the social login and the regular form to submit */}
@@ -85,8 +97,8 @@ function Login() {
                             </div>
 
                             <div class="inline-flex items-center justify-center w-full">
-                                <hr class="w-80 h-1 my-8 bg-gray-400 border-"/>
-                                    <span class="absolute px-3 font-medium bg-[#E9F7F9] text-gray-400 -translate-x-1/2 right-[17.5rem]">or continue with email</span>
+                                <hr class="w-80 h-1 my-8 bg-gray-400 border-" />
+                                <span class="absolute px-3 font-medium bg-[#E9F7F9] text-gray-400 -translate-x-1/2 right-[17.5rem]">or continue with email</span>
                             </div>
                         </div>
                     </div>
@@ -96,7 +108,7 @@ function Login() {
                         <form action="" className=" w-2/3">
 
                             {/* Email field  */}
-                            <h1 className=" font-bold mb-3"><FontAwesomeIcon icon={faEnvelope}/> Email Address</h1>
+                            <h1 className=" font-bold mb-3"><FontAwesomeIcon icon={faEnvelope} /> Email Address</h1>
                             <div>
                                 <input type="text" placeholder="Enter your email adress"
                                     className="block bg-[#E9F7F9] border-2 border-[#067FB9]
@@ -107,7 +119,7 @@ function Login() {
 
                             {/* Password field */}
                             <div>
-                                <h1 className=" font-bold mb-3"><FontAwesomeIcon icon={faKey}/> Password</h1>
+                                <h1 className=" font-bold mb-3"><FontAwesomeIcon icon={faKey} /> Password</h1>
                                 <input type="password" placeholder="Enter your password"
                                     className="block bg-[#E9F7F9] border-2 border-[#067FB9]
                                 rounded-3xl p-4 h-16 w-full text-xl
