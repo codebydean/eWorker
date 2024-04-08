@@ -1,14 +1,6 @@
-/* Implementation of Geologica Font */
-/* Setting up the Geologica font as a font face for the component*/
-@font-face {
-    font-family: 'Geologica';
-    src: /* Local */
-         url('../../assets/fonts/geologicaStatic/Geologica-Bold.ttf') format('geoBoldLocal'),
-         url('../../assets/fonts/geologicaStatic/Geologica-Regular.ttf') format('geoRegLocal'),
-         url('../../assets/fonts/geologicaStatic/Geologica-Light.ttf') format('geoLightLocal');
-}
 
 /* Creating a class to link the stylesheet with the component */
 .LandingPage {
     font-family: 'Geologica', sans-serif;
 }
+
