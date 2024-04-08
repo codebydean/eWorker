@@ -5,6 +5,6 @@
          url('../../../public/fonts/geologicaStatic/Geologica-Light.ttf') format('geoLight');
 }
 
-body {
+.LandingPage {
     font-family: 'Geologica', sans-serif;
 }

@@ -6,7 +6,7 @@ function Landing() {
     
     const NAVIGATE = useNavigate();
     return (
-        <section className="">
+        <section className="LandingPage">
             <div className="relative w-full grid grid-cols-3">
 
                 {/*------------------- Left Section -------------------*/}
@@ -59,13 +59,13 @@ function Landing() {
                                 border-2 border-[#004086] rounded-xl 
                                 p-1 text-xl w-[40%] mr-[5px] cursor-pointer
                                 text-white"
-                                onClick={()=>{NAVIGATE("/register")}}>
+                                onClick={()=>{NAVIGATE("/Register")}}>
                                 Sign up &#8594;
                             </button>
                             <button className="block bg-[#E0EAEC] 
                                  rounded-xl p-1 text-xl w-[40%] ml-[5px] 
                                  cursor-pointer text-black font-bold"
-                                 onClick={()=>{NAVIGATE(("/login"))}}>
+                                 onClick={()=>{NAVIGATE(("/Login"))}}>
                                 Login
                             </button>                            
                         </div>
