@@ -1,10 +1,10 @@
-import { useNavigate } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom';
 import {ReactTyped} from 'react-typed';
 import './landingPage.css'
 
 function Landing() {
     
-    const navigate = useNavigate();
+    const NAVIGATE = useNavigate();
     return (
         <section className="">
             <div className="relative w-full grid grid-cols-3">
@@ -59,13 +59,13 @@ function Landing() {
                                 border-2 border-[#004086] rounded-xl 
                                 p-1 text-xl w-[40%] mr-[5px] cursor-pointer
                                 text-white"
-                                onClick={()=>{navigate("/register")}}>
+                                onClick={()=>{NAVIGATE("/register")}}>
                                 Sign up &#8594;
                             </button>
                             <button className="block bg-[#E0EAEC] 
                                  rounded-xl p-1 text-xl w-[40%] ml-[5px] 
                                  cursor-pointer text-black font-bold"
-                                 onClick={()=>{navigate(("/login"))}}>
+                                 onClick={()=>{NAVIGATE(("/login"))}}>
                                 Login
                             </button>                            
                         </div>
