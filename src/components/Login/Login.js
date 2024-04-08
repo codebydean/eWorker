@@ -46,18 +46,19 @@ function Login() {
             <div className="grid grid-cols-2 h-screen w-screen bg-[#E9F7F9]">
 
                 {/* Left Section contains the login page image with the motivation text in the center */}
-                <div class="relative w-full h-screen grid grid-rows-2 grid-flow-row LoginImage">
+                <div class="relative w-full h-screen grid grid-rows-3 LoginImage">
                     {/* <img src="/images/loginImage.jpg" alt="Avatar" className="w-full h-full" /> */}
                     <div className="row-end-1 p-7">
                         <div className="flex">
-                            <button className="text-[#067FB9] text-2xl border-[#E9F7F9] border-2 p-3 rounded-3xl bg-[#E9F7F9] cursor-pointer" onClick={() => { NAVIGATE("/Home") }}>
+                            <button className="text-[#067FB9] text-2xl p-3 rounded-3xl 
+                            bg-[#E9F7F9] cursor-pointer hover:bg-[#067FB9] hover:text-white hover:shadow-xl" onClick={() => { NAVIGATE("/Home") }}>
                                 <FontAwesomeIcon icon={faArrowLeftLong} />
                                 <span>&nbsp; Home</span>
                             </button>
                         </div>
                     </div>
-                    <div className="row-start-1 row-end-3">
-                        <div className="relative w-[90%] h-full top-0 left-[5%] 
+                    <div className="row-start-1 row-end-4">
+                        <div className="h-full top-0 left-[5%] 
                                     flex justify-center items-center flex-col">
                             <label className="text-white text-5xl text-center">
                                 Embark on your path to success with <label className=" text-[#81F9E3]">Every click</label>
@@ -67,8 +68,21 @@ function Login() {
                                 Accelarate your carrer growth by connecting with top-notch opportunities
                             </label>
                         </div>
+                        
                     </div>
-
+                    <div className="row-start-4">
+                            <footer className="text-right mr-10 mb-4 text-[#E9F7F9]">
+                                <button className="mr-10">
+                                    <span>About</span>
+                                </button>
+                                <button className="mr-10">
+                                    <span>FAQ</span>
+                                </button>
+                                <button className="">
+                                    <span>Support</span>
+                                </button>
+                            </footer>
+                        </div>
                 </div>
 
                 {/* Right side contains the logo as well as the social login and the regular form to submit */}
