@@ -148,7 +148,7 @@ function Login() {
                                 <input type="Submit" className="block bg-[#067FB9] 
                                 border-2 border-[#067FB9] rounded-3xl 
                                 p-1 h-16 text-xl w-full cursor-pointer
-                                text-white " defaultValue="Login"
+                                text-white hover:bg-[#E9F7F9] hover:transition-all hover:text-[#067FB9]" defaultValue="Log in"
                                     onClick={(e) => handleSubmit(e)} />
                             </div>
 
