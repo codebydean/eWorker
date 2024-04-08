@@ -2,9 +2,10 @@
 /* Setting up the Geologica font as a font face for the component*/
 @font-face {
     font-family: 'Geologica';
-    src: url('../../../public/fonts/geologicaStatic/Geologica-Bold.ttf') format('geoBold'),
-         url('../../../public/fonts/geologicaStatic/Geologica-Regular.ttf') format('geoReg'),
-         url('../../../public/fonts/geologicaStatic/Geologica-Light.ttf') format('geoLight');
+    src: /* Local */
+         url('../../assets/fonts/geologicaStatic/Geologica-Bold.ttf') format('geoBoldLocal'),
+         url('../../assets/fonts/geologicaStatic/Geologica-Regular.ttf') format('geoRegLocal'),
+         url('../../assets/fonts/geologicaStatic/Geologica-Light.ttf') format('geoLightLocal');
 }
 
 /* Creating a class to link the stylesheet with the component */

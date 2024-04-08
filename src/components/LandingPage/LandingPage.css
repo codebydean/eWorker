@@ -3,9 +3,9 @@
 @font-face {
     font-family: 'Geologica';
     src: /* Local */
-         url('../../../public/fonts/geologicaStatic/Geologica-Bold.ttf') format('geoBoldLocal'),
-         url('../../../public/fonts/geologicaStatic/Geologica-Regular.ttf') format('geoRegLocal'),
-         url('../../../public/fonts/geologicaStatic/Geologica-Light.ttf') format('geoLightLocal'),
+         url('../../assets/fonts/geologicaStatic/Geologica-Bold.ttf') format('geoBoldLocal'),
+         url('../../assets/fonts/geologicaStatic/Geologica-Regular.ttf') format('geoRegLocal'),
+         url('../../assets/fonts/geologicaStatic/Geologica-Light.ttf') format('geoLightLocal');
 }
 
 /* Creating a class to link the stylesheet with the component */
