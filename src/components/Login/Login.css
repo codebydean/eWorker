@@ -1,8 +1,7 @@
-.Login {
-    font-family: 'Geologica', sans-serif;
-}
+@import url('../../assets/styles/index.css');
 
 .LoginImage {
+    font-family: 'GeoReg', sans-serif;
     background-image: url('../../../public/images/loginImage.jpg');
     background-repeat: no-repeat;
     background-size: cover;
