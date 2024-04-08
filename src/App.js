@@ -1,4 +1,4 @@
-import { BrowserRouter , Routes , Route} from 'react-router-dom';
+import { BrowserRouter as Router , Routes , Route} from 'react-router-dom';
 import Login from './components/Login/login';
 import Register from './components/Register/Register'
 import Landing from './components/landingPage/landingPage'
@@ -9,7 +9,7 @@ function App() {
 
   return (
     <>
-      <BrowserRouter>
+      <Router>
         <Routes>
           <Route path='/login' element={<Login />} />
           <Route path='/register' element={<Register />} />
@@ -18,7 +18,7 @@ function App() {
           <Route path='/errorHandler' element={<Error404 />} />
           <Route index element={<Landing />} />
         </Routes>
-      </BrowserRouter>
+      </Router>
     </>
   );
 }
