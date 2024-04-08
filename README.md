@@ -5,7 +5,7 @@
 <!-- LOGO SECTION -->
 <div align="center">
     <a href="">
-        <img src="images/logo.png" width="auto" height="200px">
+        <img src="./public/images/logo.png" width="auto" height="200px">
     </a>
 </div>
 <hr>
