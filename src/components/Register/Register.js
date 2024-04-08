@@ -10,6 +10,7 @@ import { faUser } from "@fortawesome/free-solid-svg-icons/faUser";
 import { faEnvelope } from "@fortawesome/free-solid-svg-icons/faEnvelope";
 import { faKey } from "@fortawesome/free-solid-svg-icons/faKey";
 
+/* Creation of a Library instance to store the variables from the font awesome imports */
 library.add(faEnvelope, faKey, faUser)
 
 /* Initialization of the Component */
