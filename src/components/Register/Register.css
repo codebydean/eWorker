@@ -1,4 +1,7 @@
+@import url('../../assets/styles/index.css');
+
 .RegisterImage {
+    font-family: 'GeoReg', sans-serif;
     background-image: url('../../../public/images/registerImage.png');
     background-repeat: no-repeat;
     background-size: cover;

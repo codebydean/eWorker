@@ -1,6 +1,7 @@
+@import url('../../assets/styles/index.css');
 
 /* Creating a class to link the stylesheet with the component */
 .LandingPage {
-    font-family: 'Geologica', sans-serif;
+    font-family: 'GeoReg', sans-serif;
 }
 

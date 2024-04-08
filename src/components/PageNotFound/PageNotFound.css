@@ -1,6 +1,8 @@
+@import url('../../assets/styles/index.css');
+
 /* Creating a class to link the stylesheet with the component */
 .PageNotFound {
-    font-family: 'Geologica', sans-serif;
+    font-family: 'GeoReg', sans-serif;
     background-image: url("../../../public/images/pagenotfound.jpg");
     background-repeat: no-repeat;
     background-size: cover;
