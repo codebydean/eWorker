@@ -1,3 +1,9 @@
 .Login {
     font-family: 'Geologica', sans-serif;
 }
+
+.LoginImage {
+    background-image: url('../../../public/images/loginImage.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
