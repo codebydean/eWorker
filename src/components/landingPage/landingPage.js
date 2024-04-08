@@ -51,18 +51,18 @@ function Landing() {
                     <div className="absolute w-[95%] h-full top-0 left-[2.5%] 
                                     flex justify-center items-center flex-col">
                         <label>
-                            Are you uneployed you are still filled with hope and ambition? Checkout what we offer completety <label className="font-bold">FREE!</label>
+                            Are you uneployed but  you are still filled with hope and ambition? Checkout what we offer completety <label className="font-bold">FREE!</label>
                         </label>
                         
                         <div className="relative flex justify-center w-full h-[50px] m-9">
-                            <button className="block bg-[#067FB9] 
-                                border-2 border-[#067FB9] rounded-xl 
+                            <button className="block bg-[#004086] 
+                                border-2 border-[#004086] rounded-xl 
                                 p-1 text-xl w-[40%] mr-[5px] cursor-pointer
                                 text-white"
                                 onClick={()=>{navigate("/register")}}>
                                 Sign up &#8594;
                             </button>
-                            <button className="block bg-[#000000]/20 
+                            <button className="block bg-[#E0EAEC] 
                                  rounded-xl p-1 text-xl w-[40%] ml-[5px] 
                                  cursor-pointer text-black font-bold"
                                  onClick={()=>{navigate(("/login"))}}>
