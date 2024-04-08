@@ -1,5 +1,6 @@
 /* Standard dependencies & Custom Stylesheets*/
 import { useState } from "react";
+import { useNavigate } from 'react-router-dom';
 import axios from 'axios'
 import './Register.css'
 
@@ -15,6 +16,9 @@ library.add(faEnvelope, faKey, faUser)
 
 /* Initialization of the Component */
 function Register() {
+
+    /* Declaration of the navigate constant */
+    const NAVIGATE = useNavigate();
 
     /* Declaration of variables for the States */
     const [username, setUsername] = useState()
@@ -128,7 +132,7 @@ function Register() {
                             </div>
 
                             {/* IF the user has already made an account he can re-direct to the login page */}
-                            <label className="flex justify-center">Already registered? -&nbsp;<a className=" text-[#067FB9]" href="/Login">Login</a></label>
+                            <label className="flex justify-center mt-2">Already registered? -&nbsp;<button className=" text-[#067FB9]" onClick={()=>{NAVIGATE("/Login")}}>Login</button></label>
                         </form>
                     </div>
                 </div>
