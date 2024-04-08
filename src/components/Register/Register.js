@@ -46,13 +46,13 @@ function Login() {
                 <div>
 
                     <div className="flex justify-center items-center">
-                        <img className=" w-60 h-40" src="/images/logoLight.png" alt=""></img>    
+                        <img className=" w-48 h-auto pt-10" src="/images/logoLight.png" alt=""></img>    
                     </div>
 
-                    <div className="flex justify-center mt-5">
+                    <div className="flex justify-center mt-10">
                         <div className="w-3/4">
                             <label className="flex justify-center text-6xl font-bold text-[#000000]">Create an account</label>
-                            <span className="flex justify-center text-xl text-[#000000] font-bold text-start w-full">completly free</span>
+                            <span className="pt-3 flex justify-center text-xl text-[#000000] font-bold text-start w-full">completly free</span>
 
                             <div className="flex justify-center">
                                 <button className="bg-[#E9F7F9] 
