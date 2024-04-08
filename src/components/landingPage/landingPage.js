@@ -1,6 +1,6 @@
 import { useNavigate } from 'react-router-dom';
 import {ReactTyped} from 'react-typed';
-import './landingPage.css'
+import './LandingPage.css'
 
 function Landing() {
     
