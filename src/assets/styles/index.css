@@ -5,19 +5,19 @@
 
 @font-face {
     font-family: 'GeoReg';
-    src: url('/public/fonts/Geologica_Auto-Regular.ttf') format('truetype');
+    src: url('/public/fonts/Geologica_Auto-Regular.ttf') format('woff');
     font-weight: 500;
 }
 
 @font-face {
     font-family: 'GeoBold';
-    src: url('/public/fonts/Geologica_Auto-Bold.ttf') format('truetype');
+    src: url('/public/fonts/Geologica_Auto-Bold.ttf') format('woff');
     font-weight: 700;
 }
 
 @font-face {
     font-family: 'GeoLight';
-    src: url('/public/fonts/Geologica_Cursive-Light.ttf') format('truetype');
+    src: url('/public/fonts/Geologica_Cursive-Light.ttf') format('woff');
     font-weight: 300;
 }
 
