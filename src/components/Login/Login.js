@@ -47,7 +47,7 @@ function Login() {
 
                 {/* Left Section contains the login page image with the motivation text in the center */}
                 <div class="relative w-full h-screen grid grid-rows-3 LoginImage">
-                    {/* <img src="/images/loginImage.jpg" alt="Avatar" className="w-full h-full" /> */}
+                    {/* Addition of a button that re-directs the user to the homepage. */}
                     <div className="row-end-1 p-7">
                         <div className="flex">
                             <button className="text-[#067FB9] text-2xl p-3 rounded-3xl 
@@ -70,6 +70,8 @@ function Login() {
                         </div>
                         
                     </div>
+                    {/* Footer that contains information which re-directs the user to the appropriate page */}
+                    {/* It contains the re-directions to ABOUT page, FAQ page, Support page */}
                     <div className="row-start-4">
                             <footer className="text-right mr-10 mb-4 text-[#E9F7F9]">
                                 <button className="mr-10">
@@ -78,7 +80,7 @@ function Login() {
                                 <button className="mr-10">
                                     <span>FAQ</span>
                                 </button>
-                                <button className="">
+                                <button>
                                     <span>Support</span>
                                 </button>
                             </footer>
@@ -152,7 +154,7 @@ function Login() {
 
                             {/* IF there is NO account found then the user needs to create one */}
                             {/* This re-directs them to the register page */}
-                            <label className="flex justify-center">You do not have an account? - &nbsp;<a className=" text-[#067FB9]" href="/Register">Create one!</a></label>
+                            <label className="flex justify-center">You do not have an account? - &nbsp;<button className=" text-[#067FB9]" onClick={()=> {NAVIGATE("/Register")}}>Create one!</button></label>
                         </form>
                     </div>
                 </div>
