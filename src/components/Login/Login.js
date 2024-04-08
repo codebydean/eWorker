@@ -154,7 +154,7 @@ function Login() {
 
                             {/* IF there is NO account found then the user needs to create one */}
                             {/* This re-directs them to the register page */}
-                            <label className="flex justify-center">You do not have an account? - &nbsp;<button className=" text-[#067FB9]" onClick={()=> {NAVIGATE("/Register")}}>Create one!</button></label>
+                            <label className="flex justify-center mt-2">You do not have an account? - &nbsp;<button className=" text-[#067FB9]" onClick={()=> {NAVIGATE("/Register")}}>Create one!</button></label>
                         </form>
                     </div>
                 </div>
