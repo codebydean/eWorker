@@ -2,11 +2,7 @@
 /* Setting up the Geologica font as a font face for the component*/
 @font-face {
     font-family: 'Geologica';
-    src: url('eWorker/public/fonts/geologicaStatic/Geologica-Bold') format('geoBold'),
-         url('eWorker/public/fonts/geologicaStatic/Geologica-Regular.ttf') format('geoReg'),
-         url('eWorker/public/fonts/geologicaStatic/Geologica-Light.ttf') format('geoLight'),
-
-         /* Local */
+    src: /* Local */
          url('../../../public/fonts/geologicaStatic/Geologica-Bold.ttf') format('geoBoldLocal'),
          url('../../../public/fonts/geologicaStatic/Geologica-Regular.ttf') format('geoRegLocal'),
          url('../../../public/fonts/geologicaStatic/Geologica-Light.ttf') format('geoLightLocal'),
