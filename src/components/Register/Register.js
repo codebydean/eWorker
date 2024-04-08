@@ -3,6 +3,15 @@ import { useState } from "react";
 import axios from 'axios'
 import './Register.css'
 
+/* Import of Font Awesome Icons */
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { library } from "@fortawesome/fontawesome-svg-core";
+import { faUser } from "@fortawesome/free-solid-svg-icons/faUser";
+import { faEnvelope } from "@fortawesome/free-solid-svg-icons/faEnvelope";
+import { faKey } from "@fortawesome/free-solid-svg-icons/faKey";
+
+library.add(faEnvelope, faKey, faUser)
+
 /* Initialization of the Component */
 function Register() {
 
@@ -78,7 +87,7 @@ function Register() {
 
                             {/* Username field as well as the addition to the database */}
                             <div>
-                                <h1 className=" font-bold mb-2">Full Name</h1>
+                                <h1 className=" font-bold mb-2"><FontAwesomeIcon icon={faUser}/> Full Name</h1>
                                 <input type="text" placeholder="Enter your username"
                                     className="block bg-[#E9F7F9] border-2 border-[#067FB9]
                                 rounded-3xl h-16 w-full text-xl mb-5
@@ -87,18 +96,19 @@ function Register() {
                             </div>
 
                             {/* Email field as well as the addition to the database */}
-                            <h1 className=" font-bold mb-2">Email Address</h1>
-                            <div>
+                            <h1 className=" font-bold mb-2"><FontAwesomeIcon icon={faEnvelope}/> Email Address</h1>
+                            <div className="relative">
                                 <input type="text" placeholder="Enter your email adress"
                                     className="block bg-[#E9F7F9] border-2 border-[#067FB9]
                                 rounded-3xl p-1 h-16 w-full text-xl 
                                 focus:outline-none focus:border-[#067FB9] mb-5 p-4"
                                     onChange={e => setEmail(e.target.value)} />
-                            </div>
+                                              
+                                </div>
 
                             {/* Password field as well as the addition to the database */}
                             <div>
-                                <h1 className=" font-bold text-[#000000]/70 mb-2">Password</h1>
+                                <h1 className=" font-bold text-[#000000]/70 mb-2"><FontAwesomeIcon icon={faKey}/> Password</h1>
                                 <input type="password" placeholder="Enter your password"
                                     className="block bg-[#E9F7F9] border-2 border-[#067FB9]
                                 rounded-3xl p-1 h-16 w-full text-xl
