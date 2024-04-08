@@ -6,6 +6,7 @@ import Landing from './components/LandingPage/LandingPage';
 import Dashboard from './components/Dashboard/Dashboard';
 import PageNotFound from './components/PageNotFound/PageNotFound';
 import './assets/styles/index.css'
+import './App.css'
 
 
 //React App initialization
