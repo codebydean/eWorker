@@ -4,17 +4,27 @@ import { useNavigate } from 'react-router-dom'
 import './Login.css'
 import axios from 'axios'
 
+/* Import of Font Awesome Icons */
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { library } from "@fortawesome/fontawesome-svg-core";
+import { faEnvelope } from "@fortawesome/free-solid-svg-icons/faEnvelope";
+import { faKey } from "@fortawesome/free-solid-svg-icons/faKey";
 
+/* Creation of a Library instance to store the variables from the font awesome imports */
+library.add(faEnvelope, faKey)
+
+/* Initialization of the Component */
 function Login() {
 
     const navigate = useNavigate();
 
+    /* Declaration of variables for the States */
     const [username, setUsername] = useState()
     const [password, setPassword] = useState()
     const [email, setEmail] = useState()
 
 
-
+    /* Form Submission for the website and addition to the database */
     const handleSubmit = (e) => {
         e.preventDefault()
         axios.post('http://localhost:5000/users/login', { email, password })
@@ -31,10 +41,10 @@ function Login() {
     return (
         <section className="Login">
 
+            {/* Splitting the viewscreen with a grid and in two columns */}
             <div className="grid grid-cols-2 h-screen w-screen bg-[#E9F7F9]">
 
-                {/*Fisrt Column (Left side)*/}
-
+                {/* Left Section contains the login page image with the motivation text in the center */}
                 <div class="relative w-full h-screen">
                     <img src="/images/loginImage.jpg" alt="Avatar" className="w-full h-full" />
                     <div className="absolute w-[90%] h-full top-0 left-[5%] 
@@ -49,21 +59,21 @@ function Login() {
                     </div>
                 </div>
 
-                {/*Second Column (Right side)*/}
+                {/* Right side contains the logo as well as the social login and the regular form to submit */}
                 <div>
 
-                    {/*-------------------------- Logo --------------------------*/}
+                    {/* Contains the logo of the project */}
                     <div className="flex justify-center items-center">
                         <img className=" w-48 h-auto pt-10" src="/images/logoLight.png" alt=""></img>
                     </div>
 
-                    {/*-------------------------- Text under logo --------------------------*/}
+                    {/* Informational text underneath the logo of the project */}
                     <div className="flex justify-center mt-10">
                         <div className="w-3/4">
                             <label className="flex justify-center text-6xl font-bold text-[#000000]">Log in to your account</label>
                             <span className="pt-3 flex justify-center text-xl text-[#000000] font-bold text-start w-full">Welcome back! Please select a way to log in:</span>
 
-                            {/*-------------------------- Login via google --------------------------*/}
+                            {/* Social Login - Currently only Google is available */}
                             <div className="flex justify-center mb-10">
                                 <button className="bg-[#E9F7F9] 
                                 border-2 border-[#067FB9] rounded-3xl 
@@ -81,12 +91,12 @@ function Login() {
                         </div>
                     </div>
 
-
+                    {/* Regular Log-in form  */}
                     <div className="flex justify-center mt-2">
                         <form action="" className=" w-2/3">
 
-                            {/*-------------------------- Email input --------------------------*/}
-                            <h1 className=" font-bold mb-3">Email Adress</h1>
+                            {/* Email field  */}
+                            <h1 className=" font-bold mb-3"><FontAwesomeIcon icon={faEnvelope}/> Email Address</h1>
                             <div>
                                 <input type="text" placeholder="Enter your email adress"
                                     className="block bg-[#E9F7F9] border-2 border-[#067FB9]
@@ -95,9 +105,9 @@ function Login() {
                                     onChange={e => setEmail(e.target.value)} />
                             </div>
 
-                            {/*-------------------------- Password input --------------------------*/}
+                            {/* Password field */}
                             <div>
-                                <h1 className=" font-bold mb-3">Password</h1>
+                                <h1 className=" font-bold mb-3"><FontAwesomeIcon icon={faKey}/> Password</h1>
                                 <input type="password" placeholder="Enter your password"
                                     className="block bg-[#E9F7F9] border-2 border-[#067FB9]
                                 rounded-3xl p-4 h-16 w-full text-xl
@@ -105,7 +115,7 @@ function Login() {
                                     onChange={e => setPassword(e.target.value)} />
                             </div>
 
-                            {/*-------------------------- Login into account button --------------------------*/}
+                            {/* Log-in button that directs you to the main screen */}
                             <div className="mt-5">
                                 <input type="Submit" className="block bg-[#067FB9] 
                                 border-2 border-[#067FB9] rounded-3xl 
@@ -114,7 +124,9 @@ function Login() {
                                     onClick={(e) => handleSubmit(e)} />
                             </div>
 
-                            <label className="flex justify-center">You do not have an account?<a className=" text-[#067FB9]" href="/register">Create one!</a></label>
+                            {/* IF there is NO account found then the user needs to create one */}
+                            {/* This re-directs them to the register page */}
+                            <label className="flex justify-center">You do not have an account? - &nbsp;<a className=" text-[#067FB9]" href="/register">Create one!</a></label>
                         </form>
                     </div>
                 </div>
