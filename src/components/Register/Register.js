@@ -128,7 +128,7 @@ function Register() {
                             </div>
 
                             {/* IF the user has already made an account he can re-direct to the login page */}
-                            <label className="flex justify-center">Already registered? -&nbsp;<a className=" text-[#067FB9]" href="/login">Login</a></label>
+                            <label className="flex justify-center">Already registered? -&nbsp;<a className=" text-[#067FB9]" href="/Login">Login</a></label>
                         </form>
                     </div>
                 </div>
