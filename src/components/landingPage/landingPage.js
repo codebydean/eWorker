@@ -1,4 +1,5 @@
 import { useNavigate } from 'react-router-dom'
+import {ReactTyped} from 'react-typed';
 import './landingPage.css'
 
 function Landing() {
@@ -14,7 +15,17 @@ function Landing() {
                     <div className="absolute w-[70%] h-full top-0 left-[15%] 
                                     flex justify-center items-center flex-col">
                         <label className="text-black text-5xl text-center">
-                        Find your <label className=" text-[#1CA9EE] underline ">Passion</label> with our solutions!
+                        Find your <label className=" text-[#1CA9EE] underline ">
+                            <ReactTyped
+                            strings={["Passion", "Future", "Dream"]}
+                            typeSpeed={120}
+                            loop
+                            backDelay={1000}
+                            backSpeed={120}
+                            cursorChar="|"
+                            showCursor={true}
+                            />
+                            </label> with our solutions!
                         </label>         
                     </div>                  
                 </div>
