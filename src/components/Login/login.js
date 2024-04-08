@@ -96,7 +96,7 @@ function Login() {
 
                             {/*-------------------------- Password input --------------------------*/}
                             <div>
-                                <h1 className=" font-bol mb-3">Password</h1>
+                                <h1 className=" font-bold mb-3">Password</h1>
                                 <input type="password" placeholder="Enter your password"
                                     className="block bg-[#E9F7F9] border-2 border-[#067FB9]
                                 rounded-3xl p-4 h-16 w-full text-xl
