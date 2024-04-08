@@ -1,0 +1,10 @@
+@font-face {
+    font-family: 'Geologica';
+    src: url('../../../public/fonts/geologicaStatic/Geologica-Bold.ttf') format('geoBold'),
+         url('../../../public/fonts/geologicaStatic/Geologica-Regular.ttf') format('geoReg'),
+         url('../../../public/fonts/geologicaStatic/Geologica-Light.ttf') format('geoLight');
+}
+
+body {
+    font-family: 'Geologica', sans-serif;
+}
