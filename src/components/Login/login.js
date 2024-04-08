@@ -1,3 +1,4 @@
+/* Standard dependencies & Custom Stylesheets*/
 import { useState } from "react";
 import { useNavigate } from 'react-router-dom'
 import './Login.css'
@@ -102,7 +103,6 @@ function Login() {
                                 rounded-3xl p-4 h-16 w-full text-xl
                                 focus:outline-none focus:border-[#067FB9]"
                                     onChange={e => setPassword(e.target.value)} />
-                                <label className=" text-[#000000]/50">Must be at least 8 characters</label>
                             </div>
 
                             {/*-------------------------- Login into account button --------------------------*/}
