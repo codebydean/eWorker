@@ -1,0 +1,5 @@
+.RegisterImage {
+    background-image: url('../../../public/images/registerImage.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
