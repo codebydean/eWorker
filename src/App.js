@@ -7,7 +7,6 @@ import Dashboard from './components/Dashboard/Dashboard';
 import PageNotFound from './components/PageNotFound/PageNotFound';
 
 
-
 //React App initialization
 function App() {
   return (

@@ -4,6 +4,23 @@
 @tailwind utilities;
 
 @font-face {
-    font-family: 'Geologica';
-    src: url('https://fonts.googleapis.com/css2?family=Geologica:wght@100..900&display=swap');
+    font-family: 'GeoReg';
+    src: url('/public/fonts/Geologica_Auto-Regular.ttf') format('truetype');
+    font-weight: 500;
+}
+
+@font-face {
+    font-family: 'GeoBold';
+    src: url('/public/fonts/Geologica_Auto-Bold.ttf') format('truetype');
+    font-weight: 700;
+}
+
+@font-face {
+    font-family: 'GeoLight';
+    src: url('/public/fonts/Geologica_Cursive-Light.ttf') format('truetype');
+    font-weight: 300;
+}
+
+body {
+    font-family: 'GeoReg', sans-serif;
 }
