@@ -1,5 +1,10 @@
 @import url('../../assets/styles/index.css');
 
-.Dashboard {
+/* Creating a class to link the stylesheet with the component */
+.Waiting {
     font-family: 'GeoReg', sans-serif;
+    background-image: url("../../../public/images/waiting.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-color: black;
 }
