@@ -103,7 +103,7 @@ function Register() {
                             <button className="bg-[#E9F7F9] 
                                 border-2 border-[#067FB9] rounded-3xl 
                                 h-16 text-xl w-3/4 cursor-pointer mt-8
-                                inline-flex items-center justify-center">
+                                inline-flex items-center justify-center transition duration-300 hover:ease-in text-[#067FB9] hover:-translate-y-1 hover:shadow-xl">
                                 <img className="mr-2" src="/images/google.png" alt=""></img>
                                 <span>Sign up with Google</span>
                             </button>
