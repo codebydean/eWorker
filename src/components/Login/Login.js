@@ -51,7 +51,7 @@ function Login() {
                     <div className="row-end-1 p-7">
                         <div className="flex">
                             <button className="text-[#067FB9] text-2xl p-3 rounded-3xl 
-                            bg-[#E9F7F9] cursor-pointer hover:bg-[#067FB9] hover:text-white hover:shadow-xl" onClick={() => { NAVIGATE("/Home") }}>
+                            bg-[#E9F7F9] cursor-pointer hover:bg-[#067FB9] hover:text-white transition duration-300 hover:ease-in hover:-translate-y-1" onClick={() => { NAVIGATE("/Home") }}>
                                 <FontAwesomeIcon icon={faArrowLeftLong} />
                                 <span>&nbsp; Home</span>
                             </button>
