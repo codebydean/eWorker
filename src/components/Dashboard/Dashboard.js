@@ -1,6 +1,7 @@
 // Standard Imports & Dependencies
-import { useNavigate } from 'react-router-dom'
+import { useNavigate, NavLink } from 'react-router-dom'
 import './Dashboard.css'
+
 
 /* Import of Font Awesome Icons */
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -27,39 +28,54 @@ function Dashboard() {
                 </div>
                 <div id='navigation' className='flex flex-col flex-1 px-4 mt-1'>
                     <div className='space-y-4'>
-                        <nav id='main-menu' className='flex-1 space-y-2 translate-y-[-5rem]'>
+                    <nav id='main-menu' className='flex-1 space-y-2 translate-y-[-5rem]'>
                             <span className='font-bold space-y-1 space-x-2 text-lg'>Main Menu</span>
-                            <button className='w-full flex items-center px-4 py-2.5 text-lg font-bold text-[#067FB9] hover:bg-[#067FB9] hover:text-white rounded-xl focus:bg-[#067FB9] focus:text-white transition-all duration-200 group'>
+
+                            <NavLink exact to="/Dashboard" className='w-full flex items-center px-4 py-2.5 text-lg font-bold text-[#067FB9] hover:bg-[#067FB9] hover:text-white rounded-xl focus:bg-[#067FB9] focus:text-white transition-all duration-200 group '>
                                 <FontAwesomeIcon icon={faHouse} className='h-5 w-5 flex-shrik-0 mr-2' />
                                 Dashboard
-                            </button>
-                            <button className='w-full flex items-center px-4 py-2.5 text-lg font-bold text-[#067FB9] hover:bg-[#067FB9] hover:text-white rounded-xl focus:bg-[#067FB9] focus:text-white transition-all duration-200  group'>
+                            </NavLink>
+
+                            <NavLink to="/JobListings" className='w-full flex items-center px-4 py-2.5 text-lg font-bold text-[#067FB9] hover:bg-[#067FB9] hover:text-white rounded-xl focus:bg-[#067FB9] focus:text-white transition-all duration-200  group'>
                                 <FontAwesomeIcon icon={faCopy} className='h-5 w-5 flex-shrik-0 mr-2' />
                                 Job Listings
-                            </button>
-                            <button className='w-full flex items-center px-4 py-2.5 text-lg font-bold text-[#067FB9] hover:bg-[#067FB9] hover:text-white rounded-xl focus:bg-[#067FB9] focus:text-white transition-all duration-200 group'>
+                            </NavLink>
+
+                            <NavLink to="/TrainingCourses" className='w-full flex items-center px-4 py-2.5 text-lg font-bold text-[#067FB9] hover:bg-[#067FB9] hover:text-white rounded-xl focus:bg-[#067FB9] focus:text-white transition-all duration-200 group'>
                                 <FontAwesomeIcon icon={faBook} className='h-5 w-5 flex-shrik-0 mr-2' />
-                                Training Courses</button>
-                            <button className='w-full flex items-center px-4 py-2.5 text-lg font-bold text-[#067FB9] hover:bg-[#067FB9] hover:text-white rounded-xl focus:bg-[#067FB9] focus:text-white transition-all duration-200 group'>
+                                Training Courses
+                            </NavLink>
+
+                            <NavLink to="/WorkPrograms" className='w-full flex items-center px-4 py-2.5 text-lg font-bold text-[#067FB9] hover:bg-[#067FB9] hover:text-white rounded-xl focus:bg-[#067FB9] focus:text-white transition-all duration-200 group'>
                                 <FontAwesomeIcon icon={faCalendarCheck} className='h-5 w-5 flex-shrik-0 mr-2' />
-                                Work Programs</button>
-                            <button className='w-full flex items-center px-4 py-2.5 text-lg font-bold text-[#067FB9] hover:bg-[#067FB9] hover:text-white rounded-xl focus:bg-[#067FB9] focus:text-white transition-all duration-200 group'>
+                                Work Programs
+                            </NavLink>
+
+                            <NavLink to="/FinancialAid" className='w-full flex items-center px-4 py-2.5 text-lg font-bold text-[#067FB9] hover:bg-[#067FB9] hover:text-white rounded-xl focus:bg-[#067FB9] focus:text-white transition-all duration-200 group'>
                                 <FontAwesomeIcon icon={faCommentsDollar} className='h-5 w-5 flex-shrik-0 mr-2' />
-                                Financial Aid</button>
+                                Financial Aid
+                            </NavLink>
+
                         </nav>
 
                         <nav id='account-menu' className='flex-1 space-y-2 translate-y-[-4rem]'>
                             <span className='font-bold space-y-1 space-x-2 text-lg'>Account</span>
-                            <button className='w-full flex items-center px-4 py-2.5 text-lg font-bold text-[#067FB9] hover:bg-[#067FB9] hover:text-white rounded-xl focus:bg-[#067FB9] focus:text-white transition-all duration-200 group'>
+
+                            <NavLink to="/Support" className='w-full flex items-center px-4 py-2.5 text-lg font-bold text-[#067FB9] hover:bg-[#067FB9] hover:text-white rounded-xl focus:bg-[#067FB9] focus:text-white transition-all duration-200 group'>
                                 <FontAwesomeIcon icon={faQuestion} className='h-5 w-5 flex-shrik-0 mr-2' />
                                 Get Help
-                            </button>
-                            <button className='w-full flex items-center px-4 py-2.5 text-lg font-bold text-[#067FB9] hover:bg-[#067FB9] hover:text-white rounded-xl focus:bg-[#067FB9] focus:text-white transition-all duration-200  group'>
+                            </NavLink>
+
+                            <NavLink to="/Settings" className='w-full flex items-center px-4 py-2.5 text-lg font-bold text-[#067FB9] hover:bg-[#067FB9] hover:text-white rounded-xl focus:bg-[#067FB9] focus:text-white transition-all duration-200  group'>
                                 <FontAwesomeIcon icon={faGear} className='h-5 w-5 flex-shrik-0 mr-2' />
-                                Settings</button>
-                            <button className='w-full flex items-center px-4 py-2.5 text-lg font-bold text-[#067FB9] hover:bg-[#067FB9] hover:text-white rounded-xl focus:bg-[#067FB9] focus:text-white transition-all duration-200 group'>
+                                Settings
+                            </NavLink>
+
+                            <NavLink to="/Logout" className='w-full flex items-center px-4 py-2.5 text-lg font-bold text-[#067FB9] hover:bg-[#067FB9] hover:text-white rounded-xl focus:bg-[#067FB9] focus:text-white transition-all duration-200 group'>
                                 <FontAwesomeIcon icon={faRightFromBracket} className='h-5 w-5 flex-shrik-0 mr-2' />
-                                Logout</button>
+                                Logout
+                            </NavLink>
+
                         </nav>
                         <div className='pb-3 mt-20 fixed bottom-0'>
                             <button className='flex items-center justify-center text-center align-center w-full px-4 py-3 text-lg font-medium text-[#067FB9] hover:shadow-2xl hover:rounded-xl hover:-translate-y-2 hover:bg-[#067FB9] hover:text-white hover:w-full transition-all duration-300 hover:ease-in'>
