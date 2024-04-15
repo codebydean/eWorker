@@ -3,3 +3,8 @@
 .Dashboard {
     font-family: 'GeoReg', sans-serif;
 }
+
+.active {
+    background-color: #067FB9;
+    color: white;
+}
