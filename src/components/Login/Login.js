@@ -127,9 +127,9 @@ function Login() {
                             <h1 className=" font-bold mb-3"><FontAwesomeIcon icon={faEnvelope} /> Email Address</h1>
                             <div>
                                 <input type="text" placeholder="Enter your email adress"
-                                    className="block bg-[#E9F7F9] border-2 border-[#067FB9]
+                                    className="block bg-[#E9F7F9] border-2 border-[#067FB9] 
                                 rounded-3xl p-4 h-16 w-full text-xl 
-                                focus:outline-none focus:border-[#067FB9] mb-5"
+                                focus:outline-none focus:border-[#067FB9] mb-5 text-[#067FB9] transition duration-300 focus:ease-in focus:text-white focus:bg-[#067FB9]"
                                     onChange={e => setEmail(e.target.value)} />
                             </div>
 
@@ -137,9 +137,9 @@ function Login() {
                             <div>
                                 <h1 className=" font-bold mb-3"><FontAwesomeIcon icon={faKey} /> Password</h1>
                                 <input type="password" placeholder="Enter your password"
-                                    className="block bg-[#E9F7F9] border-2 border-[#067FB9]
+                                    className="block bg-[#E9F7F9] border-2 border-[#067FB9] 
                                 rounded-3xl p-4 h-16 w-full text-xl
-                                focus:outline-none focus:border-[#067FB9]"
+                                focus:outline-none focus:border-[#067FB9] text-[#067FB9] transition duration-300 focus:ease-in focus:text-white focus:bg-[#067FB9]"
                                     onChange={e => setPassword(e.target.value)} />
                             </div>
 
@@ -148,7 +148,7 @@ function Login() {
                                 <input type="Submit" className="block bg-[#067FB9] 
                                 border-2 border-[#067FB9] rounded-3xl 
                                 p-1 h-16 text-xl w-full cursor-pointer
-                                text-white hover:bg-[#E9F7F9] hover:transition-all hover:text-[#067FB9]" defaultValue="Log in"
+                                text-white hover:bg-[#E9F7F9] hover:transition-all duration-300 hover:ease-in hover:text-[#067FB9]" defaultValue="Log in"
                                     onClick={(e) => handleSubmit(e)} />
                             </div>
 
