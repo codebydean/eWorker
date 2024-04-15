@@ -4,6 +4,7 @@ import Login from './components/Login/Login';
 import Register from './components/Register/Register';
 import Landing from './components/LandingPage/LandingPage';
 import Dashboard from './components/Dashboard/Dashboard';
+import JobsListings from './components/JobListings/JobsListings'
 import PageNotFound from './components/PageNotFound/PageNotFound';
 
 
@@ -17,6 +18,7 @@ function App() {
           <Route path='/Register' element={<Register />} />
           <Route path='/Home' element={<Landing />} />
           <Route path='/Dashboard' element={<Dashboard />} />
+          <Route path='/JobListings' element={<JobsListings />} />
           <Route path='*' element={<PageNotFound />} />
           <Route index element={<Landing />} />
         </Routes>
