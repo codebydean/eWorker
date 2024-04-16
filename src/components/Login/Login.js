@@ -24,6 +24,10 @@ function Login() {
     const [password, setPassword] = useState()
     const [email, setEmail] = useState()
 
+    /*Decleration of Error variables for the states*/
+    const [emailerr, setEmailerr] = useState()
+    const [passworderr, setPassworderr] = useState()
+
 
     /* Form Submission for the website and addition to the database */
     const handleSubmit = (e) => {
@@ -31,10 +35,14 @@ function Login() {
         axios.post('http://localhost:5000/users/login', { email, password })
             .then(result => {
                 if (result.data === "Success") {
+                    alert("succesfully log in!");
                     NAVIGATE("/dashboard")
-                } else {
-                    console.log("Access denied / Δοκίμασε ξανά")
+                } else if(result.data === "password"){
+                    setPassworderr("Invalid password")
+                }else if(result.data === "user not found"){
+                    setEmailerr("User not found")
                 }
+                
             })
             .catch(err => console.log(err))
     }
@@ -131,6 +139,9 @@ function Login() {
                                 rounded-3xl p-4 h-16 w-full text-xl 
                                 focus:outline-none focus:border-[#067FB9] mb-5 text-[#067FB9] transition duration-300 focus:ease-in focus:text-white focus:bg-[#067FB9]"
                                     onChange={e => setEmail(e.target.value)} />
+
+                                {/*Adding span elemement so we can see the errors ,if it is one, after the submit*/}
+                                <span className=" text-red-500">{emailerr}</span>
                             </div>
 
                             {/* Password field */}
@@ -140,7 +151,10 @@ function Login() {
                                     className="block bg-[#E9F7F9] border-2 border-[#067FB9] 
                                 rounded-3xl p-4 h-16 w-full text-xl
                                 focus:outline-none focus:border-[#067FB9] text-[#067FB9] transition duration-300 focus:ease-in focus:text-white focus:bg-[#067FB9]"
-                                    onChange={e => setPassword(e.target.value)} />
+                                    onChange={e => setPassword(e.target.value) } />
+
+                                {/*Adding span elemement so we can see the errors ,if it is one, after the submit*/}
+                                <span className=" text-red-500">{passworderr}</span>
                             </div>
 
                             {/* Log-in button that directs you to the main screen */}

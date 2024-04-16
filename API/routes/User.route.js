@@ -32,10 +32,10 @@ router.post("/login",async (req,res) =>{
             if(user.password === password){
                 res.json("Success")
             } else {
-                res.json("The password is incorrect")
+                res.json("password")
             }
         } else {
-            res.json("No user exist")
+            res.json("user not found")
         }
     })
 })
@@ -53,7 +53,7 @@ router.post("/register",async (req,res) =>{
             res.status(200).json({new_user})
         }
         if(existed_user_email){
-            res.status(300).json({message : "User already exists!"})
+            res.status(300).json("exist")
         }
     } catch (error) {
         res.status(500).json({message : error.message})
