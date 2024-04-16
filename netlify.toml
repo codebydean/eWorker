@@ -1,4 +1,4 @@
 [[redirects]]
 from = "/*"
 to = "/src/components/PageNotFound/PageNotFound.js"
-status=404
+status= 404
