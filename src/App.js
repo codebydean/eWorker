@@ -13,6 +13,10 @@ import TrainingCourses from './components/TrainingCourses/TrainingCourses'
 import WorkPrograms from './components/WorkPrograms/WorkPrograms';
 import FinancialAid from './components/FinancialAid/FinancialAid'
 
+// Imports for ACCOUNT components
+import Support from './components/Support/Support'
+import Settings from './components/Settings/Settings'
+
 // Launching Soon information page for the users once they land
 import Waiting from './components/Waiting/Waiting'
 
@@ -31,16 +35,21 @@ function App() {
           <Route path='/Login' element={<Login />} />
           <Route path='/Register' element={<Register />} />
           <Route path='/Home' element={<Landing />} />
+
           {/* Routes for MAIN MENU components */}
           <Route path='/Dashboard' element={<Dashboard />} />
           <Route path='/JobListings' element={<JobsListings />} />
           <Route path='/TrainingCourses' element={<TrainingCourses />} />
           <Route path='/WorkPrograms' element={<WorkPrograms />} />
           <Route path='/FinancialAid' element={<FinancialAid />} />
+
           {/* Routes for ACCOUNT components */}
+          <Route path='/Support' element={<Support/>} />
+          <Route path='/Settings' element={<Settings/>} />
 
           {/* Custom 404 Page  */}
           <Route path='*' element={<PageNotFound />} />
+          
           {/* Temporary LAUNCHIN SOON active component */}
           <Route index element={<Waiting />} />
         </Routes>
