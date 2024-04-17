@@ -1,0 +1,10 @@
+@import url('../../assets/styles/index.css');
+
+.FinancialAid {
+    font-family: 'GeoReg', sans-serif;
+}
+
+.active {
+    background-color: #067FB9;
+    color: white;
+}
