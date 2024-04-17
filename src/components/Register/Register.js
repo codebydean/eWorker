@@ -26,16 +26,22 @@ function Register() {
     const [password, setPassword] = useState()
     const [email, setEmail] = useState()
 
+    /*Declare of error variaboles for the state */
+    const [usererr, setUsererr] = useState()
+    const [passworderr, setpassworderr] = useState()
+    const [emailerr, setEmailerr] = useState()
+    
+
     /* Form Submission for the website and addition to the database */
     const handleSubmit = (e) => {
         e.preventDefault()
         axios.post('http://localhost:5000/users/register', { email, username, password })
             .then(result => {
                 if (result.data === "Success") {
-                    console.log("Access granded / Καλος ήρθες")
+                    alert("Τι θα κλανουμε απο εδω και μετα , θα στελνει τον χρηστη στο dashboard ή θα τον κανουμε redirect στο login page?")
                     //navigate to Login page or to main page.
-                } else {
-                    console.log("Access denied / Δοκίμασε ξανά")
+                } else if(result.data === "exist"){
+                    setEmailerr("this email already registred")                
                 }
             })
             .catch(err => console.log(err))
@@ -123,6 +129,7 @@ function Register() {
                                 rounded-3xl h-16 w-full text-xl mb-5
                                 focus:outline-none focus:border-[#067FB9] p-4 text-[#067FB9] transition duration-300 focus:ease-in focus:text-white focus:bg-[#067FB9]"
                                 onChange={e => setUsername(e.target.value)} />
+                                <span className="text-red-500">{usererr}</span>
                         </div>
 
                         {/* Email field as well as the addition to the database */}
@@ -133,6 +140,7 @@ function Register() {
                                 rounded-3xl p-1 h-16 w-full text-xl 
                                 focus:outline-none focus:border-[#067FB9] mb-5 p-4 text-[#067FB9] transition duration-300 focus:ease-in focus:text-white focus:bg-[#067FB9]" 
                                 onChange={e => setEmail(e.target.value)} />
+                            <span className="text-red-500">{emailerr}</span>
 
                         </div>
 
@@ -144,6 +152,7 @@ function Register() {
                                 rounded-3xl p-1 h-16 w-full text-xl
                                 focus:outline-none focus:border-[#067FB9] p-4 text-[#067FB9] transition duration-300 focus:ease-in focus:text-white focus:bg-[#067FB9]"
                                 onChange={e => setPassword(e.target.value)} />
+                             <span className="text-red-500">{passworderr}</span>
                             <label className=" text-[#000000]/50">Must be at least 8 characters</label>
                         </div>
 

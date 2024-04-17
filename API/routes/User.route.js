@@ -45,19 +45,19 @@ router.post("/login",async (req,res) =>{
 //We can talk about how the check for connection will be 
 router.post("/register",async (req,res) =>{
     const {email} = req.body;
-    try {
-        const existed_user_email = await User.findOne({email : email})
+    
+        User.findOne({email : email})
+        .then(existedUser => {
+            if(!existedUser ) {
+                const new_user = User.create(req.body)
+                res.status(200).json({new_user})
+            }
+            else if(existedUser){
+                res.status(300).json("exist")
+            }
+        })
         //const existed_user_username = await User.findOne({username : username})
-        if(!existed_user_email /*&& !existed_user_username*/) {
-            const new_user = await User.create(req.body)
-            res.status(200).json({new_user})
-        }
-        if(existed_user_email){
-            res.status(300).json("exist")
-        }
-    } catch (error) {
-        res.status(500).json({message : error.message})
-    }
+        
 })
 
 //POST (create) User
