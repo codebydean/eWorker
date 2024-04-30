@@ -53,7 +53,7 @@ function Landing() {
                         <label className="flex">About us</label>
                         <label className="flex">Our Features</label>
                         <label className="flex">Pricing</label>
-                        <label className="flex">Support</label>
+                        <label className="flex">Contact Us</label>
                     </div>
 
                     {/* Account Creation Form that is composed of buttons and inputs */}
