@@ -50,10 +50,10 @@ router.post("/register",async (req,res) =>{
         .then(existedUser => {
             if(!existedUser ) {
                 const new_user = User.create(req.body)
-                res.status(200).json({new_user})
+                res.status(200).json("new user")
             }
             else if(existedUser){
-                res.status(300).json("exist")
+                res.json("exist").status(300)
             }
         })
         //const existed_user_username = await User.findOne({username : username})

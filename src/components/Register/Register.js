@@ -1,6 +1,6 @@
 /* Standard dependencies & Custom Stylesheets*/
-import { useState } from "react";
-import { useNavigate } from 'react-router-dom';
+import { useEffect, useState } from "react";
+import { Navigate, useNavigate } from 'react-router-dom';
 import axios from 'axios'
 import './Register.css'
 
@@ -35,16 +35,27 @@ function Register() {
     /* Form Submission for the website and addition to the database */
     const handleSubmit = (e) => {
         e.preventDefault()
-        axios.post('http://localhost:5000/users/register', { email, username, password })
+        setEmailerr("")
+        setpassworderr("")
+        setUsererr("")
+        if(!(email && password && username)){
+            if(!email){setEmailerr("Email can not be empty")}
+            if(!password){setpassworderr("Password can not be empty")}
+            if(!username){setUsererr("Username can not be empty")}
+            return
+        }
+        else {
+            axios.post('http://localhost:5000/users/register', { email, username, password })
             .then(result => {
-                if (result.data === "Success") {
-                    alert("Τι θα κλανουμε απο εδω και μετα , θα στελνει τον χρηστη στο dashboard ή θα τον κανουμε redirect στο login page?")
-                    //navigate to Login page or to main page.
+                if (result.data === "new user") {                    
+                    //alert(`Welcome ${username}`)
+                    NAVIGATE("/dashboard")
                 } else if(result.data === "exist"){
                     setEmailerr("this email already registred")                
                 }
             })
             .catch(err => console.log(err))
+        }
     }
 
     return (
@@ -126,10 +137,10 @@ function Register() {
                             <h1 className=" font-bold mb-2"><FontAwesomeIcon icon={faUser} /> Full Name</h1>
                             <input type="text" placeholder="Enter your username"
                                 className="block bg-[#E9F7F9] border-2 border-[#067FB9]
-                                rounded-3xl h-16 w-full text-xl mb-5
+                                rounded-3xl h-16 w-full text-xl 
                                 focus:outline-none focus:border-[#067FB9] p-4 text-[#067FB9] transition duration-300 focus:ease-in focus:text-white focus:bg-[#067FB9]"
                                 onChange={e => setUsername(e.target.value)} />
-                                <span className="text-red-500">{usererr}</span>
+                                <span className="text-red-500 mb-5">{usererr}</span>
                         </div>
 
                         {/* Email field as well as the addition to the database */}
@@ -137,10 +148,10 @@ function Register() {
                         <div className="relative">
                             <input type="text" placeholder="Enter your email adress"
                                 className="block bg-[#E9F7F9] border-2 border-[#067FB9]
-                                rounded-3xl p-1 h-16 w-full text-xl 
-                                focus:outline-none focus:border-[#067FB9] mb-5 p-4 text-[#067FB9] transition duration-300 focus:ease-in focus:text-white focus:bg-[#067FB9]" 
+                                rounded-3xl h-16 w-full text-xl 
+                                focus:outline-none focus:border-[#067FB9] p-4 text-[#067FB9] transition duration-300 focus:ease-in focus:text-white focus:bg-[#067FB9]" 
                                 onChange={e => setEmail(e.target.value)} />
-                            <span className="text-red-500">{emailerr}</span>
+                            <span className="text-red-500 mb-5 ">{emailerr}</span>
 
                         </div>
 
@@ -149,7 +160,7 @@ function Register() {
                             <h1 className=" font-bold text-[#000000]/70 mb-2"><FontAwesomeIcon icon={faKey} /> Password</h1>
                             <input type="password" placeholder="Enter your password"
                                 className="block bg-[#E9F7F9] border-2 border-[#067FB9]
-                                rounded-3xl p-1 h-16 w-full text-xl
+                                rounded-3xl h-16 w-full text-xl
                                 focus:outline-none focus:border-[#067FB9] p-4 text-[#067FB9] transition duration-300 focus:ease-in focus:text-white focus:bg-[#067FB9]"
                                 onChange={e => setPassword(e.target.value)} />
                              <span className="text-red-500">{passworderr}</span>
