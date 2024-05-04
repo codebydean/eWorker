@@ -3,6 +3,9 @@ import { BrowserRouter as Router , Routes , Route} from 'react-router-dom';
 import { ToastContainer} from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
+//Import of authedicaions
+
+
 // Imports of components for initial user interaction 
 import Login from './components/Login/Login';
 import Register from './components/Register/Register';
