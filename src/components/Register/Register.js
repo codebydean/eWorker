@@ -1,6 +1,7 @@
 /* Standard dependencies & Custom Stylesheets*/
-import { useEffect, useState } from "react";
-import { Navigate, useNavigate } from 'react-router-dom';
+import { useState } from "react";
+import { useNavigate } from 'react-router-dom';
+import { toast } from 'react-toastify';
 import axios from 'axios'
 import './Register.css'
 
@@ -47,9 +48,20 @@ function Register() {
         else {
             axios.post('http://localhost:5000/users/register', { email, username, password })
             .then(result => {
-                if (result.data === "new user") {                    
-                    //alert(`Welcome ${username}`)
-                    NAVIGATE("/dashboard")
+                if (result.data === "new user") {  
+                    //Using toast to notify the use on a success registration           
+                    toast('Success', {
+                        position:"top-center",
+                        autoClose: 3000,
+                        hideProgressBar: true,
+                        closeOnClick: false,
+                        pauseOnHover: false,
+                        draggable: true,
+                        progress: undefined,
+                        theme: "light",
+                        onClose: () => NAVIGATE("/dashboard")
+                        });
+                                        
                 } else if(result.data === "exist"){
                     setEmailerr("this email already registred")                
                 }
@@ -58,9 +70,8 @@ function Register() {
         }
     }
 
-    return (
+    return ( 
         <section className="Register">
-
             {/* Splitting the viewscreen in a grid that has two columns */}
             <div className="grid grid-cols-2 w-full bg-[#E9F7F9]">
 
@@ -127,7 +138,6 @@ function Register() {
                         </div>
                     </div>
                 </div>
-
 
                 <div className="flex justify-center mt-5">
                     <form action="" className=" w-2/3">
