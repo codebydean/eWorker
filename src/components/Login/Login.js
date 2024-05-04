@@ -1,6 +1,7 @@
 /* Standard dependencies & Custom Stylesheets*/
 import { useState } from "react";
 import { useNavigate } from 'react-router-dom'
+import { toast } from 'react-toastify';
 import './Login.css'
 import axios from 'axios'
 
@@ -32,16 +33,44 @@ function Login() {
     /* Form Submission for the website and addition to the database */
     const handleSubmit = (e) => {
         e.preventDefault()
+        setEmailerr("")
+        setPassworderr("")
+        if(!(email && password)){
+            if(!email){setEmailerr("Email can not be empty")}
+            if(!password){setPassworderr("Password can not be empty")}
+            return
+        }
         axios.post('http://localhost:5000/users/login', { email, password })
             .then(result => {
+                console.log(result)
                 if (result.data === "Success") {
-                    alert("succesfully log in!");
-                    NAVIGATE("/dashboard")
-                } else if(result.data === "password"){
-                    setPassworderr("Invalid password")
-                }else if(result.data === "user not found"){
-                    setEmailerr("User not found")
+                    toast.success
+                    (`Welcome back`, {
+                        position: "top-center",
+                        autoClose: 3000,
+                        hideProgressBar: true,
+                        closeOnClick: false,
+                        pauseOnHover: false,
+                        draggable: true,
+                        progress: undefined,
+                        theme: "colored",
+                        onClose: () => NAVIGATE("/dashboard")
+                        });
+                        
+                } 
+                else if(result.data === "No user"){
+                    toast.error('incorrect password or email', {
+                        position: "top-center",
+                        autoClose: 3000,
+                        hideProgressBar: true,
+                        closeOnClick: false,
+                        pauseOnHover: false,
+                        draggable: true,
+                        progress: undefined,
+                        theme: "colored"
+                        });
                 }
+                
                 
             })
             .catch(err => console.log(err))
@@ -137,7 +166,7 @@ function Login() {
                                 <input type="text" placeholder="Enter your email adress"
                                     className="block bg-[#E9F7F9] border-2 border-[#067FB9] 
                                 rounded-3xl p-4 h-16 w-full text-xl 
-                                focus:outline-none focus:border-[#067FB9] mb-5 text-[#067FB9] transition duration-300 focus:ease-in focus:text-white focus:bg-[#067FB9]"
+                                focus:outline-none focus:border-[#067FB9] text-[#067FB9] transition duration-300 focus:ease-in focus:text-white focus:bg-[#067FB9]"
                                     onChange={e => setEmail(e.target.value)} />
 
                                 {/*Adding span elemement so we can see the errors ,if it is one, after the submit*/}
