@@ -1,9 +1,13 @@
 /* Standard dependencies & Custom Stylesheets*/
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import axios from 'axios'
+
+
+import { useGoogleLogin } from '@react-oauth/google';
 import './Register.css'
+
 
 /* Import of Font Awesome Icons */
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -13,11 +17,19 @@ import { faEnvelope } from "@fortawesome/free-solid-svg-icons/faEnvelope";
 import { faKey } from "@fortawesome/free-solid-svg-icons/faKey";
 import { faArrowLeftLong } from "@fortawesome/free-solid-svg-icons";
 
+
+import { UserContext } from '../../components/Context/Context';
+
 /* Creation of a Library instance to store the variables from the font awesome imports */
 library.add(faEnvelope, faKey, faUser, faArrowLeftLong)
 
 /* Initialization of the Component */
 function Register() {
+
+    const {
+        currentUser,
+        setCurrentUser
+      } = useContext(UserContext);
 
     /* Declaration of the navigate constant */
     const NAVIGATE = useNavigate();
@@ -50,7 +62,7 @@ function Register() {
             .then(result => {
                 if (result.data === "new user") {  
                     //Using toast to notify the use on a success registration           
-                    toast('Success', {
+                    toast.success('Success', {
                         position:"top-center",
                         autoClose: 3000,
                         hideProgressBar: true,
@@ -58,17 +70,75 @@ function Register() {
                         pauseOnHover: false,
                         draggable: true,
                         progress: undefined,
-                        theme: "light",
+                        theme: "colored",
                         onClose: () => NAVIGATE("/dashboard")
                         });
                                         
                 } else if(result.data === "exist"){
-                    setEmailerr("this email already registred")                
+                    toast.error('This email already registred', {
+                        position:"top-center",
+                        autoClose: 3000,
+                        hideProgressBar: true,
+                        closeOnClick: false,
+                        pauseOnHover: false,
+                        draggable: true,
+                        progress: undefined,
+                        theme: "colored"
+                        });
+                                   
                 }
             })
             .catch(err => console.log(err))
         }
     }
+
+    //Handle register from Google Register
+    const handleRegister = (e) => {
+        //e.preventDefault()
+        console.log(currentUser.email)
+        console.log( currentUser.name)
+        console.log(password +"google" )
+            axios.post('http://localhost:5000/users/register', { email : currentUser.email, username : currentUser.name, password: "google" })
+            .then(result => {
+                if (result.data === "new user") {  
+                    //Using toast to notify the use on a success registration           
+                    toast.success('Success', {
+                        position:"top-center",
+                        autoClose: 3000,
+                        hideProgressBar: true,
+                        closeOnClick: false,
+                        pauseOnHover: false,
+                        draggable: true,
+                        progress: undefined,
+                        theme: "colored",
+                        onClose: () => NAVIGATE("/dashboard")
+                        });
+                                        
+                } else if(result.data === "exist"){
+                    toast.error('This email already registred', {
+                        position:"top-center",
+                        autoClose: 3000,
+                        hideProgressBar: true,
+                        closeOnClick: false,
+                        pauseOnHover: false,
+                        draggable: true,
+                        progress: undefined,
+                        theme: "colored"
+                        });                 
+                }
+            })
+            .catch(err => console.log(err))
+    }
+    const login = useGoogleLogin({
+          onSuccess: (response) => {     
+            axios.get("https://www.googleapis.com/oauth2/v3/userinfo",
+                { headers : {Authorization : `${response.token_type} ${response.access_token}`}}
+            ).then((res) => {
+               setCurrentUser(res.data)
+               console.log(res.data)
+            }).then(() => NAVIGATE("/dashboard"))
+          }   
+      });
 
     return ( 
         <section className="Register">
@@ -76,7 +146,7 @@ function Register() {
             <div className="grid grid-cols-2 w-full bg-[#E9F7F9]">
 
                 {/* Left Section that contains the image and the motivation text */}
-                <div class="relative w-full h-screen grid grid-rows-3 RegisterImage">
+                <div className="relative w-full h-screen grid grid-rows-3 RegisterImage">
                     {/* Addition of a button that re-directs the user to the homepage. */}
                     <div className="row-end-1 p-7">
                         <button className="text-[#067FB9] text-2xl p-3 rounded-3xl 
@@ -116,6 +186,7 @@ function Register() {
 
             {/* Right Section that contains the form as well as the logo */}
             {/* It contains also the re-direction to the login page IF the user has already established an account with the database */}
+
             <div>
 
                 <div className="flex justify-center items-center">
@@ -131,7 +202,8 @@ function Register() {
                             <button className="bg-[#E9F7F9] 
                                 border-2 border-[#067FB9] rounded-3xl 
                                 h-16 text-xl w-3/4 cursor-pointer mt-8
-                                inline-flex items-center justify-center transition duration-300 hover:ease-in text-[#067FB9] hover:-translate-y-1 hover:shadow-xl">
+                                inline-flex items-center justify-center transition duration-300 hover:ease-in text-[#067FB9] hover:-translate-y-1 hover:shadow-xl"
+                                onClick={() => login()}>
                                 <img className="mr-2" src="/images/google.png" alt=""></img>
                                 <span>Sign up with Google</span>
                             </button>

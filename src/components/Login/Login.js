@@ -1,12 +1,11 @@
 /* Standard dependencies & Custom Stylesheets*/
-import { useState } from "react";
-import { Navigate, useNavigate } from 'react-router-dom'
+import {useContext, useState } from "react";
+import {useNavigate } from 'react-router-dom'
 import { toast } from 'react-toastify';
 import './Login.css'
 import axios from 'axios'
 
 //google Authentication
-import { GoogleLogin } from '@react-oauth/google';
 import { useGoogleLogin } from '@react-oauth/google';
 
 /* Import of Font Awesome Icons */
@@ -15,18 +14,22 @@ import { library } from "@fortawesome/fontawesome-svg-core";
 import { faEnvelope } from "@fortawesome/free-solid-svg-icons/faEnvelope";
 import { faKey } from "@fortawesome/free-solid-svg-icons/faKey";
 import { faArrowLeftLong } from "@fortawesome/free-solid-svg-icons";
-import Dashboard from "../Dashboard/Dashboard";
+
+import { UserContext } from '../../components/Context/Context';
 
 /* Creation of a Library instance to store the variables from the font awesome imports */
 library.add(faEnvelope, faKey, faArrowLeftLong)
 
 /* Initialization of the Component */
 function Login() {
+    const {
+        currentUser,
+        setCurrentUser
+      } = useContext(UserContext);
 
     const NAVIGATE = useNavigate();
 
     /* Declaration of variables for the States */
-    const [username, setUsername] = useState()
     const [password, setPassword] = useState()
     const [email, setEmail] = useState()
 
@@ -47,7 +50,6 @@ function Login() {
         }
         axios.post('http://localhost:5000/users/login', { email, password })
             .then(result => {
-                console.log(result)
                 if (result.data === "Success") {
                     toast.success
                     (`Welcome back`, {
@@ -77,11 +79,60 @@ function Login() {
             })
             .catch(err => console.log(err))
     }
-
     const login = useGoogleLogin({
-        onSuccess: codeResponse => {console.log(codeResponse);NAVIGATE("/dashboard")},
-        flow: 'auth-code',
-      });
+        onSuccess: (response) => {
+          //Getting the information about the google email for validation and then navigate to dashboard
+          axios.get("https://www.googleapis.com/oauth2/v3/userinfo",
+              {
+                  headers : {
+                      Authorization : `${response.token_type} ${response.access_token}`
+                  }  
+              }
+          ).then((res) => {
+            console.log(res.data.email)
+            setCurrentUser(res.data)
+          }).then(()=>{
+            HandleGoogleLogin()
+          })
+        }   
+    });
+
+    //Handle Login via Google
+    const HandleGoogleLogin = () => {
+        console.log(currentUser.email)
+        axios.post('http://localhost:5000/users/login', { email:currentUser.email, password:"google" })
+            .then(result => {
+                if (result.data === "Success") {
+                    toast.success
+                    (`Welcome back`, {
+                        position: "top-center",
+                        autoClose: 3000,
+                        hideProgressBar: true,
+                        closeOnClick: false,
+                        pauseOnHover: false,
+                        draggable: true,
+                        progress: undefined,
+                        theme: "colored",
+                        onClose: () => NAVIGATE("/dashboard")
+                        });            
+                } 
+                else if(result.data === "No user"){
+                    toast.error('incorrect password or email', {
+                        position: "top-center",
+                        autoClose: 3000,
+                        hideProgressBar: true,
+                        closeOnClick: false,
+                        pauseOnHover: false,
+                        draggable: true,
+                        progress: undefined,
+                        theme: "colored"
+                        });
+                }     
+            })
+            .catch(err => console.log(err))
+    }
+    
+      
     return (
         <section className="Login">
 
@@ -89,7 +140,7 @@ function Login() {
             <div className="grid grid-cols-2 h-screen w-screen bg-[#E9F7F9]">
 
                 {/* Left Section contains the login page image with the motivation text in the center */}
-                <div class="relative w-full h-screen grid grid-rows-3 LoginImage">
+                <div className="relative w-full h-screen grid grid-rows-3 LoginImage">
                     {/* Addition of a button that re-directs the user to the homepage. */}
                     <div className="row-end-1 p-7">
                         <div className="flex">
@@ -121,7 +172,7 @@ function Login() {
                                     <span>About</span>
                                 </button>
                                 <button className="mr-10">
-                                    <span>FAQ</span>
+                                    <span>FAQ </span>
                                 </button>
                                 <button>
                                     <span>Support</span>
@@ -154,7 +205,7 @@ function Login() {
                                     h-16 text-xl w-3/4 cursor-pointer mt-8
                                     inline-flex items-center justify-center duration-300 hover:ease-in text-[#067FB9] hover:-translate-y-1 hover:shadow-xl"
                                     onClick={() => login()}>
-                                        <img className="mr-2" src="/images/google.png" alt=""></img>
+                                        <img className="mr-2 h-[30px] w-[32px]" src="/images/google.png" alt=""></img>
                                         <span>Connect with Google</span>
                                     </button>
                                 </div>
@@ -166,7 +217,7 @@ function Login() {
                                     h-16 text-xl w-3/4 cursor-pointer mt-8
                                     inline-flex items-center justify-center duration-300 hover:ease-in text-[#067FB9] hover:-translate-y-1 hover:shadow-xl"
                                     onClick={() => login()}>
-                                        <img className="mr-2" src="/images/Meta.png" alt=""></img>
+                                        <img className="mr-2 h-[30px] w-[32px]" src="/images/Meta.svg" alt=""></img>
                                         <span>Connect with Meta</span>
                                     </button>
                                 </div>
@@ -178,14 +229,14 @@ function Login() {
                                     h-16 text-xl w-3/4 cursor-pointer mt-8
                                     inline-flex items-center justify-center duration-300 hover:ease-in text-[#067FB9] hover:-translate-y-1 hover:shadow-xl"
                                     onClick={() => login()}>
-                                        <img className="mr-2" src="/images/twitter_X.png" alt=""></img>
+                                        <img className="mr-2 h-[30px] w-[32px]" src="/images/twitter_X.svg" alt=""></img>
                                         <span>Connect with Twitter</span>
                                     </button>
                                 </div>
                             </div>
-                            <div class="inline-flex items-center justify-center w-full">
-                                <hr class="w-80 h-1 my-8 bg-gray-400 border-" />
-                                <span class="absolute px-3 font-medium bg-[#E9F7F9] text-gray-400 -translate-x-1/2 right-[17.5rem]">or continue with email</span>
+                            <div className="inline-flex items-center justify-center w-full">
+                                <hr className="w-80 h-1 my-8 bg-gray-400 border-" />
+                                <span className="absolute px-3 font-medium bg-[#E9F7F9] text-gray-400 -translate-x-1/2 right-[17.5rem]">or continue with email</span>
                             </div>
                         </div>
                     </div>
