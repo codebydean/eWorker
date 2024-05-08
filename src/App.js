@@ -1,10 +1,8 @@
 //Standard Imports & Dependencies
+import React from 'react'
 import { BrowserRouter as Router , Routes , Route} from 'react-router-dom';
 import { ToastContainer} from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-
-//Import of authedicaions
-
 
 // Imports of components for initial user interaction 
 import Login from './components/Login/Login';
@@ -28,38 +26,43 @@ import Waiting from './components/Waiting/Waiting'
 // Custom 404 Page
 import PageNotFound from './components/PageNotFound/PageNotFound';
 
-
-
+import { UserContext} from './components/Context/Context';
 //React App initialization
 function App() {
+  const [currentUser, setCurrentUser] = React.useState(null);
   return (
     <>
-      <Router>
-        <Routes>
-          {/* Routes for initial user interaction */}
-          <Route path='/Login' element={<Login />} />
-          <Route path='/Register' element={<Register />} />
-          <Route path='/Home' element={<Landing />} />
+    <ToastContainer/>
+      <UserContext.Provider value={{
+        currentUser,
+        setCurrentUser
+      }}>
+        <Router>
+          <Routes>
+            {/* Routes for initial user interaction */}
+            <Route path='/Login' element={<Login />} />
+            <Route path='/Register' element={<Register />} />
+            <Route path='/Home' element={<Landing />} />
 
-          {/* Routes for MAIN MENU components */}
-          <Route path='/Dashboard' element={<Dashboard />} />
-          <Route path='/JobListings' element={<JobsListings />} />
-          <Route path='/TrainingCourses' element={<TrainingCourses />} />
-          <Route path='/WorkPrograms' element={<WorkPrograms />} />
-          <Route path='/FinancialAid' element={<FinancialAid />} />
+            {/* Routes for MAIN MENU components */}
+            <Route path='/Dashboard' element={<Dashboard />} />
+            <Route path='/JobListings' element={<JobsListings />} />
+            <Route path='/TrainingCourses' element={<TrainingCourses />} />
+            <Route path='/WorkPrograms' element={<WorkPrograms />} />
+            <Route path='/FinancialAid' element={<FinancialAid />} />
 
-          {/* Routes for ACCOUNT components */}
-          <Route path='/Support' element={<Support/>} />
-          <Route path='/Settings' element={<Settings/>} />
+            {/* Routes for ACCOUNT components */}
+            <Route path='/Support' element={<Support/>} />
+            <Route path='/Settings' element={<Settings/>} />
 
-          {/* Custom 404 Page  */}
-          <Route path='*' element={<PageNotFound />} />
-          
-          {/* Temporary LAUNCHIN SOON active component */}
-          <Route index element={<Waiting />} />
-        </Routes>
-      </Router>
-      <ToastContainer/>
+            {/* Custom 404 Page  */}
+            <Route path='*' element={<PageNotFound />} />
+            
+            {/* Temporary LAUNCHIN SOON active component */}
+            <Route index element={<Waiting />} />
+          </Routes>
+        </Router> 
+      </UserContext.Provider>
     </>
   );
 }
