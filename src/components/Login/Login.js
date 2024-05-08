@@ -23,7 +23,6 @@ library.add(faEnvelope, faKey, faArrowLeftLong)
 /* Initialization of the Component */
 function Login() {
     const {
-        currentUser,
         setCurrentUser
       } = useContext(UserContext);
 
@@ -89,18 +88,18 @@ function Login() {
                   }  
               }
           ).then((res) => {
-            console.log(res.data.email)
+            HandleGoogleLogin(res.data)
             setCurrentUser(res.data)
-          }).then(()=>{
-            HandleGoogleLogin()
           })
+            
+          
         }   
     });
 
     //Handle Login via Google
-    const HandleGoogleLogin = () => {
-        console.log(currentUser.email)
-        axios.post('http://localhost:5000/users/login', { email:currentUser.email, password:"google" })
+    function HandleGoogleLogin(userInfo) {
+        
+        axios.post('http://localhost:5000/users/login', { email: userInfo.email, password:"google" })
             .then(result => {
                 if (result.data === "Success") {
                     toast.success

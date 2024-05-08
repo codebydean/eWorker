@@ -18,8 +18,6 @@ function Navbar(){
     const {
         currentUser
       } = useContext(UserContext);
-    
-      console.log(currentUser)
 
 
     return (<div id='navigation' className='bg-[FFFFFF] h-screen w-1/6 grid grid-rows-4'>

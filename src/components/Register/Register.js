@@ -93,12 +93,9 @@ function Register() {
     }
 
     //Handle register from Google Register
-    const handleRegister = (e) => {
+    function HandleGoogleRegister (e){
         //e.preventDefault()
-        console.log(currentUser.email)
-        console.log( currentUser.name)
-        console.log(password +"google" )
-            axios.post('http://localhost:5000/users/register', { email : currentUser.email, username : currentUser.name, password: "google" })
+            axios.post('http://localhost:5000/users/register', { email : e.email, username : e.name, password: "google" })
             .then(result => {
                 if (result.data === "new user") {  
                     //Using toast to notify the use on a success registration           
@@ -129,14 +126,21 @@ function Register() {
             })
             .catch(err => console.log(err))
     }
-    const login = useGoogleLogin({
-          onSuccess: (response) => {     
+    const SingUp = useGoogleLogin({
+        onSuccess: (response) => {
+            //Getting the information about the google email for validation and then navigate to dashboard
             axios.get("https://www.googleapis.com/oauth2/v3/userinfo",
-                { headers : {Authorization : `${response.token_type} ${response.access_token}`}}
+                {
+                    headers : {
+                        Authorization : `${response.token_type} ${response.access_token}`
+                    }  
+                }
             ).then((res) => {
-               setCurrentUser(res.data)
-               console.log(res.data)
-            }).then(() => NAVIGATE("/dashboard"))
+              HandleGoogleRegister(res.data)
+              setCurrentUser(res.data)
+            })
+              
+            
           }   
       });
 
@@ -203,7 +207,7 @@ function Register() {
                                 border-2 border-[#067FB9] rounded-3xl 
                                 h-16 text-xl w-3/4 cursor-pointer mt-8
                                 inline-flex items-center justify-center transition duration-300 hover:ease-in text-[#067FB9] hover:-translate-y-1 hover:shadow-xl"
-                                onClick={() => login()}>
+                                onClick={() => SingUp()}>
                                 <img className="mr-2" src="/images/google.png" alt=""></img>
                                 <span>Sign up with Google</span>
                             </button>
