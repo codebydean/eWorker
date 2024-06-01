@@ -1,15 +1,10 @@
 // Standard Imports & Dependencies
-import { useNavigate } from 'react-router-dom'
 import './Dashboard.css'
 import Navbar from '../Navbar/Navbar'
-
-
 
 // Initialization of the component
 function Dashboard() {
 
-    // Creation of the navigate constant
-    const NAVIGATE = useNavigate();
 
     return (
         <main className="Dashboard flex">

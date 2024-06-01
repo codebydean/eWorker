@@ -5,15 +5,24 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { library } from "@fortawesome/fontawesome-svg-core";
 import { faHouse, faRightFromBracket, faCopy, faBook, faCalendarCheck, faCommentsDollar, faQuestion, faGear } from '@fortawesome/free-solid-svg-icons';
 
+import { UserContext } from '../../components/Context/Context';
+import { useContext} from "react";
+
 library.add(faHouse, faCopy, faBook, faCalendarCheck, faCommentsDollar, faQuestion, faGear, faRightFromBracket)
 
 
 
 
-export default function Navbar() {
+function Navbar(){
+
+    const {
+        currentUser
+      } = useContext(UserContext);
+
+
     return (<div id='navigation' className='bg-[FFFFFF] h-screen w-1/6 grid grid-rows-4'>
     <div id='logo' className='flex justify-center align-center translate-y-8'>
-        <img src='images/logoLight.png' className='w-auto h-14' />
+        <img src='images/logoLight.png' alt="" className='w-auto h-14' />
     </div>
     <div id='navigation' className='flex flex-col flex-1 px-4 mt-1'>
         <div className='space-y-4'>
@@ -68,13 +77,14 @@ export default function Navbar() {
             </nav>
             <div className='pb-3 mt-20 fixed bottom-0'>
                 <button className='flex items-center justify-center text-center align-center w-full px-4 py-3 text-lg font-medium text-[#067FB9] hover:shadow-2xl hover:rounded-xl hover:-translate-y-2 hover:bg-[#067FB9] hover:text-white hover:w-full transition-all duration-300 hover:ease-in'>
-                <img className="flex-shrink-0 object-cover w-14 h-14 mr-5 rounded-full" src="https://landingfoliocom.imgix.net/store/collection/clarity-dashboard/images/vertical-menu/2/avatar-male.png" alt="" />
-                    Dean Joanidhi
+                <img className="flex-shrink-0 object-cover w-14 h-14 mr-5 rounded-full" src={currentUser.picture} alt="" />
+                    {currentUser.name}
                 </button>
             </div>
         </div>
     </div>
 
 </div>)
+  }
 
-}
+export default Navbar
