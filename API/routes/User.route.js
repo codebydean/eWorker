@@ -44,10 +44,10 @@ router.post("/login",async (req,res) =>{
 router.post("/register",async (req,res) =>{
     const {email} = req.body;
     
-        User.findOne({email : email})
+    await  User.findOne({email : email})
         .then(existedUser => {
             if(!existedUser ) {
-                const new_user = User.create(req.body)
+               User.create(req.body)
                 res.status(200).json("new user")
             }
             else if(existedUser){

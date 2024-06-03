@@ -14,18 +14,21 @@ const JobSchema = mongoose.Schema(
             type:String,
             required : true
         },
-        details : {
-            Company : {
-                type  :String,
-                required : false
-            },
-            City : {
-                type:String,
-                required : true
-            },
-            Avocation : {
-                type : ['Full',"Semi"]
-            }
+        Avocation : {
+            type : ["Full","Part"],
+            required : true
+        },
+        City : {
+            type:String,
+            required : true
+        },
+        Description : {
+            type : String,
+            required : true
+        },
+        Company : {
+            type  :String,
+            required : false
         }
     }
 );
