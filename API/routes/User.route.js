@@ -72,6 +72,7 @@ router.post("/", async (req, res) => {
 router.put('/:email', async (req, res) => {
     try {
         const { email } = req.params;
+        const defEmail = req.body.email
         const Users = await User.findOne({email : email})
 
         if (!Users) {
@@ -79,8 +80,9 @@ router.put('/:email', async (req, res) => {
         }
 
         const newValues = {$set : req.body }
-        const updatedUsers = await User.updateOne({email : email}, newValues);
-        res.status(200).json(updatedUsers)
+        await User.updateOne({email : email}, newValues);
+        const updatedUser = await User.findOne({email : defEmail})
+        res.status(200).json(updatedUser)
     } catch (error) {
         res.status(500).json({ message: error.message })
     }
