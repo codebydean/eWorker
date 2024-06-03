@@ -26,17 +26,11 @@ import Waiting from './components/Waiting/Waiting'
 // Custom 404 Page
 import PageNotFound from './components/PageNotFound/PageNotFound';
 
-import { UserContext} from './components/Context/Context';
 //React App initialization
 function App() {
-  const [currentUser, setCurrentUser] = React.useState(null);
   return (
     <>
     <ToastContainer/>
-      <UserContext.Provider value={{
-        currentUser,
-        setCurrentUser
-      }}>
         <Router>
           <Routes>
             {/* Routes for initial user interaction */}
@@ -62,7 +56,7 @@ function App() {
             <Route index element={<Waiting />} />
           </Routes>
         </Router> 
-      </UserContext.Provider>
+      
     </>
   );
 }
