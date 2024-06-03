@@ -12,11 +12,11 @@ router.get("/", async (req, res) => {
     }
 });
 
-//GET specific User
-router.get("/:id", async (req, res) => {
+//GET specific User by email
+router.get("/:email", async (req, res) => {
     try {
-        const { id } = req.params;
-        const Users = await User.findById(id);
+        const { email } = req.params;
+        const Users = await User.findOne({email : email});
         res.status(200).json(Users);
     } catch (error) {
         res.status(500).json({ message: error.message })
@@ -30,9 +30,9 @@ router.post("/login",async (req,res) =>{
     .then(user => {
         if(user){
             if(user.password === password){
-                res.json("Success")
+                res.send(Status = "Success")
             } else {
-                res.json("No user")
+                res.send(Status = "No user")
             }
         } else {
             res.json("No user")
@@ -40,9 +40,7 @@ router.post("/login",async (req,res) =>{
     })
 })
 
-//Register User config
-
-//We can talk about how the check for connection will be 
+//Register User config 
 router.post("/register",async (req,res) =>{
     const {email} = req.body;
     
@@ -71,16 +69,17 @@ router.post("/", async (req, res) => {
 });
 
 //PUT (update) specific User
-router.put('/:id', async (req, res) => {
+router.put('/:email', async (req, res) => {
     try {
-        const { id } = req.params;
-        const Users = await User.findByIdAndUpdate(id, req.body)
+        const { email } = req.params;
+        const Users = await User.findOne({email : email})
 
         if (!Users) {
             return res.status(404).json({ message: "User not found" })
         }
 
-        const updatedUsers = await User.findById(id);
+        const newValues = {$set : req.body }
+        const updatedUsers = await User.updateOne({email : email}, newValues);
         res.status(200).json(updatedUsers)
     } catch (error) {
         res.status(500).json({ message: error.message })

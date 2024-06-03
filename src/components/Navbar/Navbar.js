@@ -20,6 +20,7 @@ function Navbar(){
       } = useContext(UserContext);
 
 
+
     return (<div id='navigation' className='bg-[FFFFFF] h-screen w-1/6 grid grid-rows-4'>
     <div id='logo' className='flex justify-center align-center translate-y-8'>
         <img src='images/logoLight.png' alt="" className='w-auto h-14' />
@@ -79,6 +80,7 @@ function Navbar(){
                 <button className='flex items-center justify-center text-center align-center w-full px-4 py-3 text-lg font-medium text-[#067FB9] hover:shadow-2xl hover:rounded-xl hover:-translate-y-2 hover:bg-[#067FB9] hover:text-white hover:w-full transition-all duration-300 hover:ease-in'>
                 <img className="flex-shrink-0 object-cover w-14 h-14 mr-5 rounded-full" src={currentUser.picture} alt="" />
                     {currentUser.name}
+
                 </button>
             </div>
         </div>

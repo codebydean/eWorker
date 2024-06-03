@@ -23,6 +23,7 @@ library.add(faEnvelope, faKey, faArrowLeftLong)
 /* Initialization of the Component */
 function Login() {
     const {
+        currentUser,
         setCurrentUser
       } = useContext(UserContext);
 
@@ -50,6 +51,12 @@ function Login() {
         axios.post('http://localhost:5000/users/login', { email, password })
             .then(result => {
                 if (result.data === "Success") {
+                    axios.get(`http://localhost:5000/users/${email}`)
+                    .then(response => {
+                        setCurrentUser(response.data)
+                        console.log(" Get User info at login ")
+                        console.log(currentUser)
+                    })
                     toast.success
                     (`Welcome back`, {
                         position: "top-center",
@@ -251,7 +258,7 @@ function Login() {
                                     className="block bg-[#E9F7F9] border-2 border-[#067FB9] 
                                 rounded-3xl p-4 h-16 w-full text-xl 
                                 focus:outline-none focus:border-[#067FB9] text-[#067FB9] transition duration-300 focus:ease-in focus:text-white focus:bg-[#067FB9]"
-                                    onChange={e => setEmail(e.target.value)} />
+                                    onChange={e => setEmail(e.target.value)} defaultvalue={"Sokos@gmail.com"}/>
 
                                 {/*Adding span elemement so we can see the errors ,if it is one, after the submit*/}
                                 <span className=" text-red-500">{emailerr}</span>
@@ -264,7 +271,7 @@ function Login() {
                                     className="block bg-[#E9F7F9] border-2 border-[#067FB9] 
                                 rounded-3xl p-4 h-16 w-full text-xl
                                 focus:outline-none focus:border-[#067FB9] text-[#067FB9] transition duration-300 focus:ease-in focus:text-white focus:bg-[#067FB9]"
-                                    onChange={e => setPassword(e.target.value) } />
+                                    onChange={e => setPassword(e.target.value)} defaultvalue={"159753!@"}  />
 
                                 {/*Adding span elemement so we can see the errors ,if it is one, after the submit*/}
                                 <span className=" text-red-500">{passworderr}</span>
