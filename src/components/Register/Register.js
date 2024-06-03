@@ -27,7 +27,6 @@ library.add(faEnvelope, faKey, faUser, faArrowLeftLong)
 function Register() {
 
     const {
-        currentUser,
         setCurrentUser
       } = useContext(UserContext);
 
@@ -35,7 +34,7 @@ function Register() {
     const NAVIGATE = useNavigate();
 
     /* Declaration of variables for the States */
-    const [username, setUsername] = useState()
+    const [name, setName] = useState()
     const [password, setPassword] = useState()
     const [email, setEmail] = useState()
 
@@ -51,16 +50,16 @@ function Register() {
         setEmailerr("")
         setpassworderr("")
         setUsererr("")
-        if(!(email && password && username)){
+        if(!(email && password && name)){
             if(!email){setEmailerr("Email can not be empty")}
             if(!password){setpassworderr("Password can not be empty")}
-            if(!username){setUsererr("Username can not be empty")}
+            if(!name){setUsererr("Username can not be empty")}
             return
         }
         else {
-            axios.post('http://localhost:5000/users/register', { email, username, password })
+            axios.post('http://localhost:5000/users/register', { email, name, password })
             .then(result => {
-                if (result.data === "new user") {  
+                if (result.data === "new user") {
                     //Using toast to notify the use on a success registration           
                     toast.success('Success', {
                         position:"top-center",
@@ -71,7 +70,7 @@ function Register() {
                         draggable: true,
                         progress: undefined,
                         theme: "colored",
-                        onClose: () => NAVIGATE("/dashboard")
+                        onClose: () => NAVIGATE("/login")
                         });
                                         
                 } else if(result.data === "exist"){
@@ -225,7 +224,7 @@ function Register() {
                                 className="block bg-[#E9F7F9] border-2 border-[#067FB9]
                                 rounded-3xl h-16 w-full text-xl 
                                 focus:outline-none focus:border-[#067FB9] p-4 text-[#067FB9] transition duration-300 focus:ease-in focus:text-white focus:bg-[#067FB9]"
-                                onChange={e => setUsername(e.target.value)} />
+                                onChange={e => setName(e.target.value)} />
                                 <span className="text-red-500 mb-5">{usererr}</span>
                         </div>
 

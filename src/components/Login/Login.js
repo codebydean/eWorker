@@ -23,7 +23,6 @@ library.add(faEnvelope, faKey, faArrowLeftLong)
 /* Initialization of the Component */
 function Login() {
     const {
-        currentUser,
         setCurrentUser
       } = useContext(UserContext);
 
@@ -54,8 +53,6 @@ function Login() {
                     axios.get(`http://localhost:5000/users/${email}`)
                     .then(response => {
                         setCurrentUser(response.data)
-                        console.log(" Get User info at login ")
-                        console.log(currentUser)
                     })
                     toast.success
                     (`Welcome back`, {
