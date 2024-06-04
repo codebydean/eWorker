@@ -8,6 +8,7 @@ const finacialRoute = require("./routes/Finacial_aid.route.js")
 const jobRoute = require("./routes/Jobs.route.js")
 const userRoute = require("./routes/User.route.js")
 const TrainCourseRoute = require("./routes/TrainCources.route.js")
+const WorkProgramRoute = require("./routes/WorkPrograms.route.js")
 const app = express()
 
 
@@ -22,6 +23,7 @@ app.use("/finacials",finacialRoute)
 app.use("/jobs",jobRoute)
 app.use("/users",userRoute)
 app.use("/TrainCources",TrainCourseRoute)
+app.use("/WorkPrograms",WorkProgramRoute)
 
 app.get("/",() =>{
     console.log("hi")
