@@ -1,19 +1,27 @@
 // Standard Imports & Dependencies
 import './Dashboard.css'
 import Navbar from '../Navbar/Navbar'
+import Header from '../Header/Header'
 
 import { useLocalStorage } from '../../components/Localstorage/Localstorage.js';
 
 // Initialization of the component
 function Dashboard() {
-    const [user,setUser] = useLocalStorage("user","");
+    const [user, setUser] = useLocalStorage("user", "");
 
     return (
         <main className="Dashboard flex">
-            <Navbar></Navbar>
-            <div id='main' className='bg-[blue] h-screen w-5/6'>
-                test
+            {/* Dynamic Render of the Navbar */}
+            <Navbar/>
+            <div className='w-full flex flex-col'>
+                {/* Dynamic Render of the Header */}
+                <Header/>
+                {/* Main Content here*/}
+                <div className='h-full w-full'>
+                    test
+                </div>
             </div>
+
         </main>
     );
 }

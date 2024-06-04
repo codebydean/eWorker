@@ -2,6 +2,7 @@
 import { useNavigate } from 'react-router-dom'
 import './FinancialAid.css'
 import Navbar from '../Navbar/Navbar'
+import Header from '../Header/Header'
 
 
 
@@ -12,10 +13,13 @@ function FinancialAid() {
     const NAVIGATE = useNavigate();
 
     return (
-        <main className="FinancialAid flex">
-            <Navbar></Navbar>
-            <div id='main' className='bg-[blue] h-screen w-5/6'>
-                test
+        <main className="Dashboard flex">
+            <Navbar/>
+            <div className='w-full flex flex-col'>
+                <Header/>
+                <div className='w-full h-full'>
+                    Job Listings
+                </div>
             </div>
         </main>
     );

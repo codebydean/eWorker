@@ -1,7 +1,8 @@
 // Standard Imports & Dependencies
 import { useNavigate } from 'react-router-dom'
 import './JobsListings.css'
-import Navbar from '../Navbar/Navbar';
+import Navbar from '../Navbar/Navbar'
+import Header from '../Header/Header'
 
 
 
@@ -13,9 +14,12 @@ function JobListings() {
 
     return (
         <main className="Dashboard flex">
-            <Navbar></Navbar>
-            <div id='main' className='bg-[blue] h-screen w-5/6'>
-                test
+            <Navbar/>
+            <div className='w-full flex flex-col'>
+                <Header/>
+                <div className='w-full h-full'>
+                    Job Listings
+                </div>
             </div>
         </main>
     );
