@@ -1,27 +1,23 @@
-import { useContext, useState} from "react"
+import {useState} from "react"
 import {useNavigate } from 'react-router-dom'
-import { UserContext } from '../../components/Context/Context';
 import axios from "axios";
 
-
+import { useLocalStorage } from '../../components/Localstorage/Localstorage.js';
 
 function Settings () {
 
-    const {
-        currentUser,
-        setCurrentUser
-      } = useContext(UserContext);
+    const [user,setUser] = useLocalStorage("user","");
 
     const NAVIGATE = useNavigate();
 
-    const [name, setName] = useState(currentUser.name)
-    const [password, setPassword] = useState(currentUser.password)
-    const [email, setEmail] = useState(currentUser.email)
+    const [name, setName] = useState(user.name)
+    const [password, setPassword] = useState(user.password)
+    const [email, setEmail] = useState(user.email)
 
 
-    const defusername = currentUser.name
-    const defemail = currentUser.email
-    const defpassword = currentUser.password
+    const defusername = user.name
+    const defemail = user.email0
+    const defpassword = user.password
 
     const resetDefaultUserInfo = () =>{
         const UserName = document.getElementById("UserName")
@@ -34,12 +30,16 @@ function Settings () {
         Password.value = defpassword
       }
 
-    const submitUserNewInfo =() =>{
+    const submitUserNewInfo = () =>{
         axios.put(`http://localhost:5000/users/${defemail}`, {email , name , password})
         .then(response => {
-            setCurrentUser(response.data)  
+            setUser(response.data)  
         })
-        .then(NAVIGATE("/dashboard"))
+        
+        //Litle delay to change the value of localstorage of user
+        setTimeout(() => {
+            NAVIGATE("/dashboard")
+        }, 1000); 
       }
 
 

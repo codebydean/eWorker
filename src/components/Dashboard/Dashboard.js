@@ -2,9 +2,11 @@
 import './Dashboard.css'
 import Navbar from '../Navbar/Navbar'
 
+import { useLocalStorage } from '../../components/Localstorage/Localstorage.js';
+
 // Initialization of the component
 function Dashboard() {
-
+    const [user,setUser] = useLocalStorage("user","");
 
     return (
         <main className="Dashboard flex">

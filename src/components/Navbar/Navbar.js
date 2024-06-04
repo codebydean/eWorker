@@ -5,8 +5,8 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { library } from "@fortawesome/fontawesome-svg-core";
 import { faHouse, faRightFromBracket, faCopy, faBook, faCalendarCheck, faCommentsDollar, faQuestion, faGear } from '@fortawesome/free-solid-svg-icons';
 
-import { UserContext } from '../../components/Context/Context';
-import { useContext} from "react";
+import { useLocalStorage } from '../../components/Localstorage/Localstorage.js';
+    
 
 library.add(faHouse, faCopy, faBook, faCalendarCheck, faCommentsDollar, faQuestion, faGear, faRightFromBracket)
 
@@ -15,10 +15,7 @@ library.add(faHouse, faCopy, faBook, faCalendarCheck, faCommentsDollar, faQuesti
 
 function Navbar(){
 
-    const {
-        currentUser
-      } = useContext(UserContext);
-
+    const [user,setUser] = useLocalStorage("user","");
 
 
     return (<div id='navigation' className='bg-[FFFFFF] h-screen w-1/6 grid grid-rows-4'>
@@ -78,8 +75,8 @@ function Navbar(){
             </nav>
             <div className='pb-3 mt-20 fixed bottom-0'>
                 <button className='flex items-center justify-center text-center align-center w-full px-4 py-3 text-lg font-medium text-[#067FB9] hover:shadow-2xl hover:rounded-xl hover:-translate-y-2 hover:bg-[#067FB9] hover:text-white hover:w-full transition-all duration-300 hover:ease-in'>
-                <img className="flex-shrink-0 object-cover w-14 h-14 mr-5 rounded-full" src={currentUser.picture} alt="" />
-                    {currentUser.name}
+                <img className="flex-shrink-0 object-cover w-14 h-14 mr-5 rounded-full" src={user.picture} alt="" />
+                    {user.name}
 
                 </button>
             </div>

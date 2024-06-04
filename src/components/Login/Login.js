@@ -1,5 +1,5 @@
 /* Standard dependencies & Custom Stylesheets*/
-import {useContext, useState } from "react";
+import { useState } from "react";
 import {useNavigate } from 'react-router-dom'
 import { toast } from 'react-toastify';
 import './Login.css'
@@ -15,16 +15,16 @@ import { faEnvelope } from "@fortawesome/free-solid-svg-icons/faEnvelope";
 import { faKey } from "@fortawesome/free-solid-svg-icons/faKey";
 import { faArrowLeftLong } from "@fortawesome/free-solid-svg-icons";
 
-import { UserContext } from '../../components/Context/Context';
+import { useLocalStorage } from '../../components/Localstorage/Localstorage.js';
 
 /* Creation of a Library instance to store the variables from the font awesome imports */
 library.add(faEnvelope, faKey, faArrowLeftLong)
 
 /* Initialization of the Component */
 function Login() {
-    const {
-        setCurrentUser
-      } = useContext(UserContext);
+
+    const [user,setUser] = useLocalStorage("user","");
+
 
     const NAVIGATE = useNavigate();
 
@@ -35,7 +35,6 @@ function Login() {
     /*Decleration of Error variables for the states*/
     const [emailerr, setEmailerr] = useState()
     const [passworderr, setPassworderr] = useState()
-
 
     /* Form Submission for the website and addition to the database */
     const handleSubmit = (e) => {
@@ -52,7 +51,7 @@ function Login() {
                 if (result.data === "Success") {
                     axios.get(`http://localhost:5000/users/${email}`)
                     .then(response => {
-                        setCurrentUser(response.data)
+                        setUser(response.data)
                     })
                     toast.success
                     (`Welcome back`, {
@@ -93,7 +92,7 @@ function Login() {
               }
           ).then((res) => {
             HandleGoogleLogin(res.data)
-            setCurrentUser(res.data)
+            
           })
             
           

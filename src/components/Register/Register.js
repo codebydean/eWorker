@@ -1,5 +1,5 @@
 /* Standard dependencies & Custom Stylesheets*/
-import { useContext, useState } from "react";
+import { useState } from "react";
 import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import axios from 'axios'
@@ -16,9 +16,8 @@ import { faUser } from "@fortawesome/free-solid-svg-icons/faUser";
 import { faEnvelope } from "@fortawesome/free-solid-svg-icons/faEnvelope";
 import { faKey } from "@fortawesome/free-solid-svg-icons/faKey";
 import { faArrowLeftLong } from "@fortawesome/free-solid-svg-icons";
+import { useLocalStorage } from '../../components/Localstorage/Localstorage.js';
 
-
-import { UserContext } from '../../components/Context/Context';
 
 /* Creation of a Library instance to store the variables from the font awesome imports */
 library.add(faEnvelope, faKey, faUser, faArrowLeftLong)
@@ -26,9 +25,7 @@ library.add(faEnvelope, faKey, faUser, faArrowLeftLong)
 /* Initialization of the Component */
 function Register() {
 
-    const {
-        setCurrentUser
-      } = useContext(UserContext);
+    const [user,setUser] = useLocalStorage("user","");
 
     /* Declaration of the navigate constant */
     const NAVIGATE = useNavigate();
@@ -136,7 +133,7 @@ function Register() {
                 }
             ).then((res) => {
               HandleGoogleRegister(res.data)
-              setCurrentUser(res.data)
+              setUser(res.data)
             })
               
             
