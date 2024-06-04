@@ -25,6 +25,7 @@ import Waiting from './components/Waiting/Waiting'
 
 // Custom 404 Page
 import PageNotFound from './components/PageNotFound/PageNotFound';
+import Logout from './components/Logout/Logout';
 
 //React App initialization
 function App() {
@@ -37,7 +38,7 @@ function App() {
             <Route path='/Login' element={<Login />} />
             <Route path='/Register' element={<Register />} />
             <Route path='/Home' element={<Landing />} />
-
+            <Route path="/Logout" element= {<Logout/>} />
             {/* Routes for MAIN MENU components */}
             <Route path='/Dashboard' element={<Dashboard />} />
             <Route path='/JobListings' element={<JobsListings />} />
@@ -48,6 +49,8 @@ function App() {
             {/* Routes for ACCOUNT components */}
             <Route path='/Support' element={<Support/>} />
             <Route path='/Settings' element={<Settings/>} />
+
+            
 
             {/* Custom 404 Page  */}
             <Route path='*' element={<PageNotFound />} />

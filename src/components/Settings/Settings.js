@@ -16,7 +16,7 @@ function Settings () {
 
 
     const defusername = user.name
-    const defemail = user.email0
+    const defemail = user.email
     const defpassword = user.password
 
     const resetDefaultUserInfo = () =>{
@@ -36,7 +36,7 @@ function Settings () {
             setUser(response.data)  
         })
         
-        //Litle delay to change the value of localstorage of user
+        //Litle delay to change the value of localstorage item user
         setTimeout(() => {
             NAVIGATE("/dashboard")
         }, 1000); 
