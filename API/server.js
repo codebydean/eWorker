@@ -25,9 +25,7 @@ app.use("/users",userRoute)
 app.use("/TrainCources",TrainCourseRoute)
 app.use("/WorkPrograms",WorkProgramRoute)
 
-app.get("/",() =>{
-    console.log("hi")
-})
+
 const PORT = 5000;
 mongoose.connect("mongodb+srv://Worker:hardWorker@eworker.mckxgmh.mongodb.net/DB?retryWrites=true&w=majority&appName=eWorker")
     .then(() => {
