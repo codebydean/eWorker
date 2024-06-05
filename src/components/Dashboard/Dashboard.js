@@ -50,6 +50,29 @@ const JobCard = ({ title, description, location, maxDescriptionLength }) => {
 
 }
 
+//Dynamic Creation of the News Card
+const NewsCard = ({ title, description, maxDescriptionLength }) => {
+    const descLimit = calculateDesc(description, maxDescriptionLength);
+
+    return (
+        <div className='flex'>
+            <div id='news-image' className='mr-3 cursor-pointer'>
+                <svg fill="#067FB9" height="64" width="64px" viewBox="0 0 32 32">
+                    <g id="SVGRepo_bgCarrier" strokeWidth="0"></g>
+                    <g id="SVGRepo_tracerCarrier" strokeLinecap="round" strokeLinejoin="round"></g>
+                    <g id="SVGRepo_iconCarrier"> 
+                        <path d="M28,14h-5V6c0-0.6-0.4-1-1-1H4C3.4,5,3,5.4,3,6v18c0,2.2,1.8,4,4,4h17c0.1,0,0.2,0,0.3-0.1c0.2,0,0.4,0.1,0.7,0.1 c2.2,0,4-1.8,4-4v-9C29,14.4,28.6,14,28,14z M10,16H8c-0.6,0-1-0.4-1-1s0.4-1,1-1h2c0.6,0,1,0.4,1,1S10.6,16,10,16z M14,12H8 c-0.6,0-1-0.4-1-1s0.4-1,1-1h6c0.6,0,1,0.4,1,1S14.6,12,14,12z M27,24c0,1.1-0.9,2-2,2c-0.2,0-0.4,0-0.6-0.1c0,0,0,0,0,0 c-0.6-0.2-1-0.7-1.2-1.2c0,0,0-0.1,0-0.1C23,24.4,23,24.2,23,24v-8h4V24z"></path> 
+                    </g>
+                </svg>
+            </div>
+            <div>
+                <h2 className='text-md font-bold text-[#067FB9] mb-4'>{title}</h2>
+                <span>{descLimit}</span>
+            </div>
+        </div>
+    );
+}
+
 
 // Initialization of the component
 function Dashboard() {
@@ -72,12 +95,17 @@ function Dashboard() {
                         <JobCard title="Community Manager" description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi finibus mi ac libero hendrerit, eu sodales elit vulputate. Morbi semper placerat bibendum." location="Houston, TX" maxDescriptionLength={100} />
                         <JobCard title="UX Designer" description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi finibus mi ac libero hendrerit, eu sodales elit vulputate. Morbi semper placerat bibendum." location="Thessaloniki, GR" maxDescriptionLength={100} />
                     </div>
-                    <div id='News-Statistics' className='flex flex-row w-full space-x-10 mt-5'>
-                        <div id='Statistics'  className='space-y-10'>
-                            <div className='border-4 border-[#067FB9] rounded-xl pl-3 shadow-lg'><JobChart/></div>
-                            <div className='border-4 border-[#067FB9] rounded-xl pl-3 shadow-lg'><UnemploymentChart/></div>
+                    <div id='News-Statistics' className='flex flex-row w-full space-x-12 mt-24'>
+                        <div id='Statistics' className='space-y-10 w-1/2'>
+                            <div className='border-4 border-[#067FB9] rounded-xl p-2 shadow-lg'><JobChart /></div>
+                            <div className='border-4 border-[#067FB9] rounded-xl p-2 shadow-lg'><UnemploymentChart /></div>
                         </div>
-                        <div id='News'>test3</div>
+                        <div id='News' className='flex flex-col w-full space-y-10 justify-around'>
+                            <NewsCard title="Community's Generosity Shines" description="The local charity's food drive exceeded expectations as residents united to support those in need. Overflowing donation bins and dedicated volunteers highlighted the community's incredible generosity. This outpouring of support serves as a heartwarming reminder of the power of unity." maxDescriptionLength={200}/>
+                            <NewsCard title="Students Lead Neighborhood Cleanup" description="Driven by their passion for the environment, students organized a successful neighborhood cleanup. With widespread participation, volunteers transformed littered areas into pristine spaces. Their initiative inspires action and showcases the power of community-driven change." maxDescriptionLength={200}/>
+                            <NewsCard title="Students Lead Neighborhood Cleanup" description="Driven by their passion for the environment, students organized a successful neighborhood cleanup. With widespread participation, volunteers transformed littered areas into pristine spaces. Their initiative inspires action and showcases the power of community-driven change." maxDescriptionLength={200}/>
+
+                        </div>
                     </div>
                 </div>
             </div>
