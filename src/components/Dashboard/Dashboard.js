@@ -9,6 +9,15 @@ import { useLocalStorage } from '../../components/Localstorage/Localstorage.js';
 //Function to calculate the title width
 const calculateTitleWidth = (title) => `${title.length + 2}ch`;
 
+//Function to restrict the characters in the card description
+const calculateDesc = (text, maxLength) => {
+    if (text.length > maxLength) {
+        return text.slice(0, maxLength) + '...';
+    }
+    return text;
+}
+
+//Component for the dynamic input of icons
 const JobTitleIcon = () => (
     // placeholder for dynamic icon input
     <svg className="w-6 h-6 text-[#067FB9] mr-1" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -16,9 +25,10 @@ const JobTitleIcon = () => (
     </svg>
 );
 
-//Dynamic Creation of the title card
-const JobCard = ({ title, description, location }) => {
+//Dynamic Creation of the Job Card
+const JobCard = ({ title, description, location, maxDescriptionLength }) => {
     const titleWidth = calculateTitleWidth(title);
+    const descLimit = calculateDesc(description, maxDescriptionLength);
 
     return (
         <div className='flex flex-col bg-white border-4 border-[#067FB9] rounded-2xl p-5'>
@@ -26,17 +36,18 @@ const JobCard = ({ title, description, location }) => {
                 <JobTitleIcon />
                 <h2>{title}</h2>
             </div>
-            <hr style={{ width: titleWidth}} className='h-1 rounded-sm bg-[#067FB9] mb-5 mt-2' />
-            <span className='mb-5'>{description}</span>
-            <span className='mb-10 text-[#067FB9]'>{location}</span>
+            <hr style={{ width: titleWidth }} className='h-1 rounded-sm bg-[#067FB9] mb-5 mt-2' />
+            <span className='mb-5 text-sm'>{descLimit}</span>
+            <div className='flex items-center mb-10'>
+                <svg viewBox="0 0 24 24" width="32" className='mr-2' fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M12 21C15.5 17.4 19 14.1764 19 10.2C19 6.22355 15.866 3 12 3C8.13401 3 5 6.22355 5 10.2C5 14.1764 8.5 17.4 12 21Z" stroke="#067FB9" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path> <path d="M12 12C13.1046 12 14 11.1046 14 10C14 8.89543 13.1046 8 12 8C10.8954 8 10 8.89543 10 10C10 11.1046 10.8954 12 12 12Z" stroke="#067FB9" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path> </g></svg>
+                <span className='text-[#067FB9]'>{location}</span>
+            </div>
+
             <button className='flex rounded-full bg-[#067FB9] text-white p-2 w-28 h-8 items-center justify-center'>Apply now!</button>
         </div>
     );
 
 }
-
-
-
 
 
 // Initialization of the component
@@ -52,13 +63,13 @@ function Dashboard() {
                 <Header />
                 {/* Main Content here*/}
                 <div className='h-full w-full flex flex-col p-4'>
-                    <div id='jobCard' className='w-full mb-5 flex flex-row space-x-11'>
+                    <div id='jobCard' className='w-full mb-5 flex flex-row space-x-9'>
                         {/* Render Job Cards */}
-                        <JobCard title="Software Engineer" description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi finibus mi ac libero hendrerit, eu sodales elit vulputate. Morbi semper placerat bibendum." location="Los Angeles" />
-                        <JobCard title="Product Designer" description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi finibus mi ac libero hendrerit, eu sodales elit vulputate. Morbi semper placerat bibendum." location="Los Angeles" />
-                        <JobCard title="UI Designer" description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi finibus mi ac libero hendrerit, eu sodales elit vulputate. Morbi semper placerat bibendum." location="Los Angeles" />
-                        <JobCard title="Community Manager" description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi finibus mi ac libero hendrerit, eu sodales elit vulputate. Morbi semper placerat bibendum." location="Los Angeles" />
-                        <JobCard title="UX Designer" description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi finibus mi ac libero hendrerit, eu sodales elit vulputate. Morbi semper placerat bibendum." location="Los Angeles" />
+                        <JobCard title="Software Engineer" description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi finibus mi ac libero hendrerit, eu sodales elit vulputate. Morbi semper placerat bibendum." location="Los Angeles" maxDescriptionLength={100} />
+                        <JobCard title="Product Designer" description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi finibus mi ac libero hendrerit, eu sodales elit vulputate. Morbi semper placerat bibendum." location="Los Angeles" maxDescriptionLength={100} />
+                        <JobCard title="UI Designer" description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi finibus mi ac libero hendrerit, eu sodales elit vulputate. Morbi semper placerat bibendum." location="Los Angeles" maxDescriptionLength={100} />
+                        <JobCard title="Community Manager" description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi finibus mi ac libero hendrerit, eu sodales elit vulputate. Morbi semper placerat bibendum." location="Los Angeles" maxDescriptionLength={100} />
+                        <JobCard title="UX Designer" description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi finibus mi ac libero hendrerit, eu sodales elit vulputate. Morbi semper placerat bibendum." location="Los Angeles" maxDescriptionLength={100} />
                     </div>
                     <div id='News-Statistics' className='flex flex-row w-full h-full space-x-10 mt-2'>
                         <div id='Statistics'>test2</div>
@@ -72,11 +83,3 @@ function Dashboard() {
 }
 
 export default Dashboard
-
-
-{/* <div id='card1' className='flex flex-col bg-white border-4 border-[#067FB9] rounded-2xl p-5'>
-<h2>Job Title</h2>
-<span>Description</span>
-<span>Location</span>
-<button className='flex rounded-full bg-[#067FB9] text-white p-2 w-28 h-8 items-center justify-center'>Apply now!</button>
-</div> */}
