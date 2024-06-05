@@ -18,7 +18,7 @@ export default function UnemploymentChart(){
     return(
         <LineChart
             width={700}
-            height={300}
+            height={200}
             series={[
                 {data: yearA, label:'2024'},
                 {data: yearB, label:'2023'}
