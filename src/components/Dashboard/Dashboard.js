@@ -2,9 +2,10 @@
 import './Dashboard.css'
 import Navbar from '../Navbar/Navbar'
 import Header from '../Header/Header'
+import JobChart from '../Charts/JobsC'
+import UnemploymentChart from '../Charts/UnemploymentC.js'
 
 import { useLocalStorage } from '../../components/Localstorage/Localstorage.js';
-
 
 //Function to calculate the title width
 const calculateTitleWidth = (title) => `${title.length + 2}ch`;
@@ -31,7 +32,7 @@ const JobCard = ({ title, description, location, maxDescriptionLength }) => {
     const descLimit = calculateDesc(description, maxDescriptionLength);
 
     return (
-        <div className='flex flex-col bg-white border-4 border-[#067FB9] rounded-2xl p-5'>
+        <div className='flex flex-col bg-white border-4 border-[#067FB9] rounded-2xl p-5  shadow-lg'>
             <div className='flex items-center'>
                 <JobTitleIcon />
                 <h2>{title}</h2>
@@ -43,7 +44,7 @@ const JobCard = ({ title, description, location, maxDescriptionLength }) => {
                 <span className='text-[#067FB9]'>{location}</span>
             </div>
 
-            <button className='flex rounded-full bg-[#067FB9] text-white p-2 w-28 h-8 items-center justify-center'>Apply now!</button>
+            <button className='flex rounded-full bg-[#067FB9] text-white p-2 w-28 h-8 items-center justify-center hover:shadow-lg shadow-gray-800 transition duration-500 hover:translate-y-[-.4rem]'>Apply now!</button>
         </div>
     );
 
@@ -65,14 +66,17 @@ function Dashboard() {
                 <div className='h-full w-full flex flex-col p-4'>
                     <div id='jobCard' className='w-full mb-5 flex flex-row space-x-9'>
                         {/* Render Job Cards */}
-                        <JobCard title="Software Engineer" description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi finibus mi ac libero hendrerit, eu sodales elit vulputate. Morbi semper placerat bibendum." location="Los Angeles" maxDescriptionLength={100} />
-                        <JobCard title="Product Designer" description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi finibus mi ac libero hendrerit, eu sodales elit vulputate. Morbi semper placerat bibendum." location="Los Angeles" maxDescriptionLength={100} />
-                        <JobCard title="UI Designer" description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi finibus mi ac libero hendrerit, eu sodales elit vulputate. Morbi semper placerat bibendum." location="Los Angeles" maxDescriptionLength={100} />
-                        <JobCard title="Community Manager" description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi finibus mi ac libero hendrerit, eu sodales elit vulputate. Morbi semper placerat bibendum." location="Los Angeles" maxDescriptionLength={100} />
-                        <JobCard title="UX Designer" description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi finibus mi ac libero hendrerit, eu sodales elit vulputate. Morbi semper placerat bibendum." location="Los Angeles" maxDescriptionLength={100} />
+                        <JobCard title="Software Engineer" description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi finibus mi ac libero hendrerit, eu sodales elit vulputate. Morbi semper placerat bibendum." location="Los Angeles, CA" maxDescriptionLength={100} />
+                        <JobCard title="Product Designer" description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi finibus mi ac libero hendrerit, eu sodales elit vulputate. Morbi semper placerat bibendum." location="Cupertino, CA" maxDescriptionLength={100} />
+                        <JobCard title="UI Designer" description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi finibus mi ac libero hendrerit, eu sodales elit vulputate. Morbi semper placerat bibendum." location="Miami, FL" maxDescriptionLength={100} />
+                        <JobCard title="Community Manager" description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi finibus mi ac libero hendrerit, eu sodales elit vulputate. Morbi semper placerat bibendum." location="Houston, TX" maxDescriptionLength={100} />
+                        <JobCard title="UX Designer" description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi finibus mi ac libero hendrerit, eu sodales elit vulputate. Morbi semper placerat bibendum." location="Thessaloniki, GR" maxDescriptionLength={100} />
                     </div>
-                    <div id='News-Statistics' className='flex flex-row w-full h-full space-x-10 mt-2'>
-                        <div id='Statistics'>test2</div>
+                    <div id='News-Statistics' className='flex flex-row w-full space-x-10 mt-5'>
+                        <div id='Statistics'  className='space-y-10'>
+                            <div className='border-4 border-[#067FB9] rounded-xl pl-3 shadow-lg'><JobChart/></div>
+                            <div className='border-4 border-[#067FB9] rounded-xl pl-3 shadow-lg'><UnemploymentChart/></div>
+                        </div>
                         <div id='News'>test3</div>
                     </div>
                 </div>
