@@ -56,8 +56,8 @@ const NewsCard = ({ title, description, maxDescriptionLength }) => {
 
     return (
         <div className='flex'>
-            <div id='news-image' className='mr-3 cursor-pointer'>
-                <svg fill="#067FB9" height="64" width="64px" viewBox="0 0 32 32">
+            <div id='news-image' className='mr-3 cursor-pointer hover:shadow-l transition duration-500 hover:translate-y-[-.4rem]'>
+                <svg fill="#067FB9" height="64" width="64px" viewBox="0 0 32 32" >
                     <g id="SVGRepo_bgCarrier" strokeWidth="0"></g>
                     <g id="SVGRepo_tracerCarrier" strokeLinecap="round" strokeLinejoin="round"></g>
                     <g id="SVGRepo_iconCarrier"> 
