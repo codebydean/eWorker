@@ -19,8 +19,7 @@ function WorkProgramList(props){
             */}
                {WorkPrograms.map((WorkProgram) => (
                     <div className="w-full h-fit min-h-[100px] p-5 mb-6 bg-blue-200 opacity-80 rounded-3xl flex justify-center flex-col" key={WorkProgram.name}>
-                       
-
+                       WORK IN PROGRESS
                     </div>
                ))} 
         </div>
