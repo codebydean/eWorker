@@ -1,4 +1,4 @@
-const calculateTitleWidth = (title) => `${title.length + 2}ch`;
+const calculateTitleWidth = (name ) => `${name.length + 2}ch`;
 const calculateDesc = (text, maxLength) => {
     if (text.length > maxLength) {
         return text.slice(0, maxLength) + '...';
@@ -7,7 +7,7 @@ const calculateDesc = (text, maxLength) => {
 }
 
 
-export default function JobCards(props, title=null) {
+export default function JobCards(props, name=null) {
 
     const jobs = props.data
     //console.log(job.data[0].Category)
@@ -28,14 +28,14 @@ export default function JobCards(props, title=null) {
                 <div key={index} className="flex flex-row space-x-10">
                     {/* Render each chunk of jobs */}
                     {card.map((job) => (
-                        <div className="flex flex-col" key={job.Title}>
+                        <div className="flex flex-col" key={job.name}>
                             <div className="flex flex-col bg-white border-4 border-[#067FB9] rounded-2xl p-5 shadow-lg">
-                                <p className="text-xl font-bold text-[#067FB9]">{job.Title}</p>
-                                <hr style={{ width: calculateTitleWidth(job.Title) }} className="h-1 rounded-sm bg-[#067FB9] mb-5 mt-2" />
-                                <span className="mb-5 text-sm">{job.Company}</span>
+                                <p className="text-xl font-bold text-[#067FB9]">{console.log(job.refs.landing_page)}{job.name}</p>
+                                <hr style={{ width: calculateTitleWidth(job.name) }} className="h-1 rounded-sm bg-[#067FB9] mb-5 mt-2" />
+                                <span className="mb-5 text-sm">{job.company.name}</span>
                                 <span className=" text-sm">{job.Avocation}</span>
                                 <div className="mb-5 mt-5">
-                                <span className=" text-sm italic ">{calculateDesc(job.Description, 55)}</span>
+                                <span className=" text-sm italic ">{calculateDesc(job.name, 55)}</span>
                                 </div>
                                 <div className="flex items-center mb-10">
                                     <svg viewBox="0 0 24 24" width="32" className="mr-2" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -46,9 +46,9 @@ export default function JobCards(props, title=null) {
                                             <path d="M12 12C13.1046 12 14 11.1046 14 10C14 8.89543 13.1046 8 12 8C10.8954 8 10 8.89543 10 10C10 11.1046 10.8954 12 12 12Z" stroke="#067FB9" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
                                         </g>
                                     </svg>
-                                    <span className="text-[#067FB9]">{job.City}</span>
+                                    <span className="text-[#067FB9]">{job.locations[0].name}</span>
                                 </div>
-                                <button className="flex rounded-full bg-[#067FB9] text-white p-2 w-28 h-8 items-center justify-center hover:shadow-lg shadow-gray-800 transition duration-500 hover:translate-y-[-.4rem]">Apply now!</button>
+                                <a className="flex rounded-full bg-[#067FB9] text-white p-2 w-28 h-8 items-center justify-center hover:shadow-lg shadow-gray-800 transition duration-500 hover:translate-y-[-.4rem]" href={job.refs.landing_page}>Apply now!</a>
                             </div>
                         </div>
                     ))}

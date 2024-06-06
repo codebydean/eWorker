@@ -20,8 +20,11 @@ function JobListings() {
     const [jobs,setJobs] = useState([])
     
     function getData(){
-        axios.get(`http://localhost:5000/jobs`)
-        .then((response) => setJobs(response.data))
+        axios.get(`https://www.themuse.com/api/public/jobs?page=0`)
+        .then((response) => 
+            {
+            setJobs(response.data.results)
+        })
     }
 
     useEffect(()=>{
