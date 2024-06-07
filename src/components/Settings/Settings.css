@@ -1,0 +1,13 @@
+#profile-details {
+    background-color: rgba(6, 127, 185, .06);
+    padding: 60px;
+    box-shadow: 10px 10px 1rem 0px rgb(0 0 0 / 0.2);
+}
+
+#change-password {
+    background-color: rgba(6, 127, 185, .06);
+    padding: 60px;
+    width: fit-content;
+    translate: -50px;
+    box-shadow: 10px 10px 1rem 0px rgb(0 0 0 / 0.2);
+}
