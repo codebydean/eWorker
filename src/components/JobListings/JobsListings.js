@@ -38,12 +38,12 @@ function JobListings() {
             <div className='w-full flex flex-col'>
                 <Header/>
                 <div className='w-full h-full flex flex-col items-center'>
-                <div className='w-full h-full flex flex-row justify-center items-center'>
+                <div className='w-full h-full flex flex-row justify-center items-center mb-5 space-x-4'>
                         <button className="flex items-center px-4 py-2.5 text-lg font-bold text-[#067FB9] hover:bg-[#067FB9] hover:text-white rounded-xl focus:bg-[#067FB9] focus:text-white transition-all duration-200 group" onClick={()=>{if(page===0){setPage(0)}else {setPage(page-1)} }}>Previous Page</button>
                         <button className="flex items-center px-4 py-2.5 text-lg font-bold text-[#067FB9] hover:bg-[#067FB9] hover:text-white rounded-xl focus:bg-[#067FB9] focus:text-white transition-all duration-200 group" onClick={()=>{if(page===10){setPage(10)}else {setPage(page+1)}}}>Next Page</button>   
                     </div>
                     <JobCards data={jobs}/>    
-                    <div className='w-full h-full flex flex-row justify-center items-center'>
+                    <div className='w-full h-full flex flex-row justify-center items-center mt-5 space-x-4'>
                         <button className="flex items-center px-4 py-2.5 text-lg font-bold text-[#067FB9] hover:bg-[#067FB9] hover:text-white rounded-xl focus:bg-[#067FB9] focus:text-white transition-all duration-200 group" onClick={()=>{if(page===0){setPage(0)}else {setPage(page-1)} }}>Previous Page</button>
                         <button className="flex items-center px-4 py-2.5 text-lg font-bold text-[#067FB9] hover:bg-[#067FB9] hover:text-white rounded-xl focus:bg-[#067FB9] focus:text-white transition-all duration-200 group" onClick={()=>{if(page===10){setPage(10)}else {setPage(page+1)}}}>Next Page</button>   
                     </div>
