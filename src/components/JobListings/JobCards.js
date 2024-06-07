@@ -1,4 +1,14 @@
-const calculateTitleWidth = (name ) => `${name.length + 2}ch`;
+// const calculateTitleWidth = (name ) => `${name.length + 2}ch`;
+
+const calculateTitleSize = (name) => {
+    const words=name.split(' ');
+    if (words.length > 3) {
+        return words.slice(0, 3).join(' ');
+    }
+
+    return name;
+}
+
 const calculateDesc = (text, maxLength) => {
     if (text.length > maxLength) {
         return text.slice(0, maxLength) + '...';
@@ -29,13 +39,15 @@ export default function JobCards(props, name=null) {
                     {/* Render each chunk of jobs */}
                     {card.map((job) => (
                         <div className="flex flex-col" key={job.name}>
-                            <div className="flex flex-col bg-white border-4 border-[#067FB9] rounded-2xl p-5 shadow-lg">
-                                <p className="text-xl font-bold text-[#067FB9]">{console.log(job.refs.landing_page)}{job.name}</p>
-                                <hr style={{ width: calculateTitleWidth(job.name) }} className="h-1 rounded-sm bg-[#067FB9] mb-5 mt-2" />
+                            <div className="flex flex-col bg-white border-4 border-[#067FB9] rounded-2xl p-5 shadow-lg max-w-[250px]">
+                                <p className="text-xl font-bold text-[#067FB9]">{console.log(job.refs.landing_page)}{calculateTitleSize(job.name)}</p>
+                                <hr 
+                                // style={{ width: calculateTitleWidth(job.name) }} 
+                                className="h-1 rounded-sm bg-[#067FB9] mb-5 mt-2" />
                                 <span className="mb-5 text-sm">{job.company.name}</span>
                                 <span className=" text-sm">{job.Avocation}</span>
-                                <div className="mb-5 mt-5">
-                                <span className=" text-sm italic ">{calculateDesc(job.name, 55)}</span>
+                                <div className="mb-5 mt-5 whitespace-normal">
+                                <span className=" text-sm italic">{calculateDesc(job.name, 55)}</span>
                                 </div>
                                 <div className="flex items-center mb-10">
                                     <svg viewBox="0 0 24 24" width="32" className="mr-2" fill="none" xmlns="http://www.w3.org/2000/svg">
