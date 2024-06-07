@@ -61,7 +61,7 @@ function Navbar(){
             <nav id='account-menu' className='flex-1 space-y-2 translate-y-[-4rem]'>
                 <span className='font-bold space-y-1 space-x-2 text-lg'>Account</span>
 
-                <button onClick={handleOpen} className='w-full  flex items-center px-4 py-2.5 text-lg font-bold text-[#067FB9] hover:bg-red-500 hover:text-white rounded-xl focus:bg-red-500 focus:text-white transition-all duration-200 group'>
+                <button onClick={handleOpen} className='w-full  flex items-center px-4 py-2.5 text-lg font-bold text-[#067FB9] hover:bg-red-500 hover:text-white rounded-xl focus:bg-red-500 focus:text-white focus:outline-none transition-all duration-200 group'>
                     <FontAwesomeIcon icon={faQuestion} className='h-5 w-5 flex-shrik-0 mr-2' />
                     Get Help
                     <Modal
