@@ -6,6 +6,8 @@ import JobChart from '../Charts/JobsC'
 import UnemploymentChart from '../Charts/UnemploymentC.js'
 
 import { useLocalStorage } from '../../components/Localstorage/Localstorage.js';
+import { useEffect, useState } from 'react'
+import axios from 'axios'
 
 //Function to calculate the title width
 const calculateTitleWidth = (title) => `${title.length + 2}ch`;
@@ -76,7 +78,20 @@ const NewsCard = ({ title, description, maxDescriptionLength }) => {
 
 // Initialization of the component
 function Dashboard() {
-    const [user, setUser] = useLocalStorage("user", "");
+    const [news, setNews] = useState([])
+
+    const getNewsData = () => {
+        //Actual url  https://newsdata.io/api/1/latest?apikey=pub_45823fe08a973f774a3e0b1ef818d73f4f59c
+        axios.get("http://localhost:5000/records"/*Dummy URL for */) 
+        .then((res)=> {
+            /*For dummy Url */setNews(res.data)
+            //*For actual URL */setNews(res.data.results)
+        })
+    }
+
+    useEffect(()=> {
+        getNewsData()
+    },[])
 
     return (
         <main className="Dashboard flex">
@@ -101,10 +116,12 @@ function Dashboard() {
                             <div className='border-4 border-[#067FB9] rounded-xl p-2 shadow-lg'><UnemploymentChart /></div>
                         </div>
                         <div id='News' className='flex flex-col w-full space-y-10 justify-around'>
-                            <NewsCard title="Community's Generosity Shines" description="The local charity's food drive exceeded expectations as residents united to support those in need. Overflowing donation bins and dedicated volunteers highlighted the community's incredible generosity. This outpouring of support serves as a heartwarming reminder of the power of unity." maxDescriptionLength={200}/>
-                            <NewsCard title="Students Lead Neighborhood Cleanup" description="Driven by their passion for the environment, students organized a successful neighborhood cleanup. With widespread participation, volunteers transformed littered areas into pristine spaces. Their initiative inspires action and showcases the power of community-driven change." maxDescriptionLength={200}/>
-                            <NewsCard title="Students Lead Neighborhood Cleanup" description="Driven by their passion for the environment, students organized a successful neighborhood cleanup. With widespread participation, volunteers transformed littered areas into pristine spaces. Their initiative inspires action and showcases the power of community-driven change." maxDescriptionLength={200}/>
-
+                            {
+                                news.map((news)=>(
+                                    <NewsCard title={news.title} description={news.description} maxDescriptionLength={200}/>
+                                ))
+                            }
+                        
                         </div>
                     </div>
                 </div>
