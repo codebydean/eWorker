@@ -15,6 +15,28 @@
 Join our <a href="https://discord.gg/fUdGeYcryy" target="_blank">socials</a> if you want to share your experience with eWorker, and communicate with fellow users.
 </p>
 <hr>
+<!-- CLONING PROCESS -->
+<h3>🧑🏻‍🔧 Cloning Process</h3>
+<p>In order for the project to work for you locally you need to have certain npm packages installed, as eWorker works with third-party libraries as well.
+
+These Packages can be installed like the following:</p>
+
+- `npm i react-toastify` (For the popup notifications)
+- `npm i @react-oauth/google` (For the Google Authentication)
+- `npm install @headlessui/react` (Implementation of the headlessui library)
+- `npm install @mui/material @emotion/react @emotion/styled` (Implemenetation of the MUI library as well as emotion)
+- `npm install @mui/x-charts` (Implementation of the MUI Charts)
+
+All packages need **Node.js** to be installed as it comes with **npm** and **npx**.
+<hr>
+<!-- RUNNING THE PORJECT -->
+<h3>✅ Running the Project</h3>
+<p>In order for the project to run correctly after you completed all the above steps after cloning the repository, you need to run the following commands in your terminal of choice.</p>
+
+- `npm start` - This makes the project build and run on the localhost IP address
+- In order for you to log-in and register you need to change director to the **API** folder and consequently run `npm run dev` for the API to listen.
+<hr>
+
 <!-- CONTRIBUTING SECTION -->
 <h3>🤝 Contributing</h3>
 
